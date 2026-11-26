@@ -4,56 +4,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Học liệu Mỹ thuật THCS - Hồng Sơn Art</title>
+<title>Hồng Sơn ART | Học liệu Mỹ thuật THCS</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7f5ef;color:#263746}
+body{margin:0;font-family:Arial,sans-serif;color:#263746;background:#f7f7f3}
 header{background:#19364a;color:white;padding:55px 20px;text-align:center}
-header h1{font-size:36px;margin:10px}
-header p{color:#f2c17c}
-nav{background:#e56d52;padding:15px;text-align:center}
-nav a{color:white;text-decoration:none;margin:0 12px;font-weight:bold}
-main{max-width:1000px;margin:35px auto;padding:0 20px}
+header .brand{color:#f4c477;letter-spacing:3px;font-weight:bold}
+header h1{font-size:clamp(28px,5vw,46px);margin:15px 0}
+header p{line-height:1.7}
+nav{background:#e46e50;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
+nav a{color:white;text-decoration:none;margin:7px 12px;font-weight:bold;display:inline-block}
+main{max-width:1100px;margin:auto;padding:25px 20px}
 h2{color:#19364a}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-.card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 12px #0001;text-align:center}
-.card h3{color:#d76c50}
-.card a{display:inline-block;background:#19364a;color:white;padding:10px 18px;border-radius:6px;text-decoration:none}
-.intro{line-height:1.8;background:white;padding:25px;border-radius:12px;margin-top:25px}
-footer{background:#19364a;color:white;text-align:center;padding:22px;margin-top:50px}
+.hero{background:#fff;border-radius:16px;padding:30px;margin:20px 0;line-height:1.8}
+.search{width:100%;padding:15px;border:1px solid #ccc;border-radius:10px;font-size:16px;margin:10px 0 25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:white;border-radius:14px;padding:24px;box-shadow:0 4px 15px #0000000c}
+.card h3{color:#d9684d}
+.card p{line-height:1.7;color:#586674}
+.btn{display:inline-block;background:#19364a;color:white;padding:11px 17px;border-radius:8px;text-decoration:none}
+.btn:hover{background:#e46e50}
+.section{padding:25px 0}
+.resource{border-left:5px solid #e46e50}
+.resource a{color:#d9684d;font-weight:bold}
+.gallery{background:#fff;padding:25px;border-radius:14px;line-height:1.8}
+footer{background:#19364a;color:white;text-align:center;padding:30px 15px;line-height:1.8;margin-top:40px}
+.small{font-size:13px;color:#a9bac7}
 </style>
 </head>
 <body>
+
 <header>
-<p>KHÔNG GIAN HỌC TẬP VÀ SÁNG TẠO</p>
+<div class="brand">HỒNG SƠN ART</div>
 <h1>HỌC LIỆU MỸ THUẬT THCS</h1>
-<h3>HỒNG SƠN ART</h3>
-<p>TRƯỜNG THCS CAO BÁ QUÁT - CHƯ SÊ - GIA LAI</p>
+<p>KHÁM PHÁ · TRẢI NGHIỆM · SÁNG TẠO</p>
+<p>TRƯỜNG THCS CAO BÁ QUÁT<br>
+XÃ CHƯ SÊ – TỈNH GIA LAI</p>
 </header>
+
 <nav>
 <a href="#trangchu">Trang chủ</a>
 <a href="#khoilop">Khối lớp</a>
+<a href="#tailieu">Học liệu</a>
+<a href="#trienlam">Triển lãm</a>
 <a href="#gioithieu">Giới thiệu</a>
 </nav>
-<main id="trangchu">
-<h2>CHÀO MỪNG CÁC EM ĐẾN VỚI KHÔNG GIAN MỸ THUẬT</h2>
-<p>Khám phá kiến thức, thực hành và phát triển khả năng sáng tạo nghệ thuật.</p>
-<section id="khoilop">
+
+<main>
+<section class="hero" id="trangchu">
+<h2>Chào mừng đến với không gian Mỹ thuật</h2>
+<p>Website chia sẻ học liệu môn Mỹ thuật cấp THCS, hỗ trợ giáo viên tổ chức hoạt động dạy học và giúp học sinh khám phá, thực hành, phát triển năng lực sáng tạo nghệ thuật.</p>
+<strong>Hãy bắt đầu hành trình sáng tạo của em!</strong>
+</section>
+
+<section class="section" id="khoilop">
 <h2>HỌC LIỆU THEO KHỐI LỚP</h2>
+<p>Lựa chọn khối lớp để khám phá nội dung học tập.</p>
 <div class="grid">
-<div class="card"><h3>MỸ THUẬT 6</h3><p>Khám phá và trải nghiệm</p><a href="#">Xem học liệu</a></div>
-<div class="card"><h3>MỸ THUẬT 7</h3><p>Biểu đạt và sáng tạo</p><a href="#">Xem học liệu</a></div>
-<div class="card"><h3>MỸ THUẬT 8</h3><p>Thiết kế và ứng dụng</p><a href="#">Xem học liệu</a></div>
-<div class="card"><h3>MỸ THUẬT 9</h3><p>Định hướng và phát triển</p><a href="#">Xem học liệu</a></div>
+<div class="card">
+<h3>MỸ THUẬT 6</h3>
+<p>Khám phá nghệ thuật, tạo hình và biểu cảm của màu sắc.</p>
+<a class="btn" href="#tailieu">Khám phá</a>
+</div>
+<div class="card">
+<h3>MỸ THUẬT 7</h3>
+<p>Phát triển khả năng quan sát, biểu đạt và sáng tạo.</p>
+<a class="btn" href="#tailieu">Khám phá</a>
+</div>
+<div class="card">
+<h3>MỸ THUẬT 8</h3>
+<p>Thiết kế, ứng dụng và sáng tạo sản phẩm mỹ thuật.</p>
+<a class="btn" href="#tailieu">Khám phá</a>
+</div>
+<div class="card">
+<h3>MỸ THUẬT 9</h3>
+<p>Khám phá nghệ thuật đương đại và định hướng sáng tạo.</p>
+<a class="btn" href="#tailieu">Khám phá</a>
+</div>
 </div>
 </section>
-<section class="intro" id="gioithieu">
-<h2>GIỚI THIỆU WEBSITE</h2>
-<p>Đây là không gian chia sẻ học liệu môn Mỹ thuật cấp THCS, hỗ trợ giáo viên và học sinh trong quá trình dạy học theo Chương trình Giáo dục phổ thông 2018.</p>
-<p><b>Phụ trách nội dung:</b> Hồng Sơn</p>
-<p><b>Đơn vị:</b> Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai.</p>
+
+<section class="section" id="tailieu">
+<h2>THƯ VIỆN HỌC LIỆU</h2>
+<p>Tìm kiếm tài liệu theo tên hoặc chủ đề.</p>
+<input class="search" id="search" type="text" placeholder="Nhập tên học liệu cần tìm...">
+<div class="grid" id="resources">
+<div class="card resource">
+<h3>Giáo án Mỹ thuật</h3>
+<p>Kế hoạch bài dạy, hoạt động học tập và đánh giá.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+<div class="card resource">
+<h3>Phiếu học tập</h3>
+<p>Phiếu nhiệm vụ, câu hỏi khám phá và thực hành.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+<div class="card resource">
+<h3>Video bài học</h3>
+<p>Video minh họa kỹ thuật và quy trình sáng tạo.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+<div class="card resource">
+<h3>Hình ảnh mỹ thuật</h3>
+<p>Tư liệu trực quan phục vụ hoạt động quan sát, phân tích.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+<div class="card resource">
+<h3>Đánh giá sản phẩm</h3>
+<p>Bảng kiểm, rubric và tiêu chí đánh giá học tập.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+<div class="card resource">
+<h3>Ứng dụng AI</h3>
+<p>Các công cụ AI hỗ trợ dạy học và sáng tạo.</p>
+<a href="#gioithieu">Đang cập nhật</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="trienlam">
+<h2>GÓC SÁNG TẠO – TRIỂN LÃM HỌC SINH</h2>
+<div class="gallery">
+<p><strong>Nơi giới thiệu những ý tưởng và sản phẩm nghệ thuật của học sinh.</strong></p>
+<p>Các tác phẩm tranh vẽ, tranh in, sản phẩm tạo hình 3D, thiết kế ứng dụng và hoạt động mỹ thuật của học sinh sẽ được cập nhật tại đây.</p>
+<p><em>Thư viện sản phẩm đang được xây dựng.</em></p>
+</div>
+</section>
+
+<section class="section" id="gioithieu">
+<h2>GIỚI THIỆU</h2>
+<div class="gallery">
+<p><strong>Người phụ trách nội dung: Hồng Sơn</strong></p>
+<p>Giáo viên Mỹ thuật – Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai.</p>
+<p>Website hướng tới xây dựng môi trường học tập trực quan, sáng tạo, góp phần phát triển phẩm chất và năng lực học sinh theo Chương trình Giáo dục phổ thông 2018.</p>
+</div>
 </section>
 </main>
-<footer>© 2026 HỒNG SƠN ART - HỌC LIỆU MỸ THUẬT THCS</footer>
+
+<footer>
+<strong>HỒNG SƠN ART – HỌC LIỆU MỸ THUẬT THCS</strong>
+<p>Trường THCS Cao Bá Quát – Chư Sê – Gia Lai</p>
+<div class="small">© 2026 · Website học liệu giáo dục</div>
+</footer>
+
+<script>
+document.getElementById("search").addEventListener("input",function(){
+const keyword=this.value.toLowerCase();
+document.querySelectorAll("#resources .card").forEach(function(card){
+card.style.display=card.innerText.toLowerCase().includes(keyword)?"block":"none";
+});
+});
+</script>
 </body>
 </html>
