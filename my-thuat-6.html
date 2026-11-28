@@ -146,7 +146,7 @@
             padding: 0 24px;
         }
 
-        /* --- KHUNG TỔNG QUAN & CHỌN NHANH HỌC KỲ --- */
+        /* --- KHUNG TỔNG QUAN & SGK/SGV --- */
         .overview-card {
             background: var(--card-bg);
             padding: 28px 34px;
@@ -166,7 +166,49 @@
         .overview-card p {
             font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
+        }
+
+        /* Khu vực nút SGK & SGV nổi bật */
+        .textbook-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed rgba(22, 43, 56, 0.12);
+        }
+
+        .book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-sgk {
+            background-color: var(--primary-navy);
+            color: #FFFFFF;
+        }
+        .btn-sgk:hover {
+            background-color: #25465B;
+            transform: translateY(-2px);
+        }
+
+        .btn-sgv {
+            background-color: #FDF0EC;
+            color: var(--accent-terracotta);
+            border: 1px solid rgba(200, 90, 50, 0.25);
+        }
+        .btn-sgv:hover {
+            background-color: var(--accent-terracotta);
+            color: #FFFFFF;
+            transform: translateY(-2px);
         }
 
         .semester-jump {
@@ -363,7 +405,7 @@
     <header>
         <div class="brand-badge">HỒNG SƠN ART · KẾT NỐI TRI THỨC VỚI CUỘC SỐNG</div>
         <h1>HỌC LIỆU MỸ THUẬT 6</h1>
-        <p class="subtitle">Hệ thống bài giảng điện tử, video hướng dẫn thực hành và phiếu học tập trọn bộ 8 Chủ đề (16 Bài học)</p>
+        <p class="subtitle">Hệ thống sách điện tử, bài giảng, video hướng dẫn thực hành và phiếu học tập trọn bộ 8 Chủ đề (16 Bài học)</p>
     </header>
 
     <nav>
@@ -379,10 +421,17 @@
     </nav>
 
     <div class="container">
-        <!-- Giới thiệu nhanh khối 6 -->
+        <!-- Giới thiệu nhanh & Tài liệu sách giáo khoa / giáo viên -->
         <div class="overview-card">
-            <h2>Mục lục Học liệu Mĩ thuật 6 (Cả năm học)</h2>
-            <p>Các em học sinh chọn đúng Chủ đề và Bài học theo phân phối chương trình để xem bài giảng minh họa, video hướng dẫn kỹ thuật và tải phiếu học tập trước giờ lên lớp.</p>
+            <h2>Tài liệu nền tảng & Mục lục Mĩ thuật 6</h2>
+            <p>Truy cập nhanh Sách giáo khoa, Sách giáo viên bản điện tử hoặc chọn đúng Chủ đề và Bài học bên dưới để xem video thị phạm và phiếu học tập.</p>
+            
+            <!-- 2 nút SGK và SGV -->
+            <div class="textbook-bar">
+                <a href="https://drive.google.com/file/d/1POqH5nSrxkHDpL_aydenPl0-cb_M2ozL/view?usp=drive_link" target="_blank" class="book-btn btn-sgk">📖 Sách giáo khoa Mĩ thuật 6 (KNTT)</a>
+                <a href="https://drive.google.com/file/d/1OynsxihOUXJ3fYGmqtUZ6xvKB9K3GOXk/view?usp=drive_link" target="_blank" class="book-btn btn-sgv">📘 Sách giáo viên Mĩ thuật 6 (KNTT)</a>
+            </div>
+
             <div class="semester-jump">
                 <a href="#hoc-ky-1" class="jump-btn">↓ Học kỳ I (Chủ đề 1 – 4)</a>
                 <a href="#hoc-ky-2" class="jump-btn">↓ Học kỳ II (Chủ đề 5 – 8)</a>
@@ -406,7 +455,7 @@
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
-                        <a href="#" class="res-btn btn-video">🎬 Video thị phạm</a>
+                        <a href="https://youtu.be/i7KFAG8tkiI?si=A1bqphuQP-dpvAio" target="_blank" class="res-btn btn-video">🎬 Video thị phạm</a>
                         <a href="My-thuat-6/" class="res-btn btn-doc">📄 Phiếu học tập</a>
                     </div>
                 </div>
