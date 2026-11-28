@@ -33,6 +33,7 @@
             text-align: center;
             padding: 45px 20px 40px;
             position: relative;
+            overflow: hidden;
         }
         header::after {
             content: "";
@@ -50,7 +51,7 @@
             font-size: clamp(28px, 4.5vw, 40px);
             font-weight: 700; margin-bottom: 8px;
         }
-        header .subtitle { font-size: 14px; color: #E2D9C8; max-width: 650px; margin: 0 auto; }
+        header .subtitle { font-size: 14px; color: #E2D9C8; max-width: 680px; margin: 0 auto; }
         nav {
             background-color: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
@@ -66,7 +67,7 @@
             display: inline-flex; align-items: center; gap: 6px;
             color: var(--accent-terracotta); text-decoration: none;
             font-weight: 700; font-size: 14px; padding: 6px 14px;
-            border-radius: 6px; background: rgba(200, 90, 50, 0.08); transition: 0.2s;
+            border-radius: 6px; background: rgba(200, 90, 50, 0.08); transition: all 0.2s;
         }
         .back-home:hover { background: var(--accent-terracotta); color: #FFFFFF; }
         .grade-switcher a {
@@ -79,20 +80,37 @@
         .overview-card {
             background: var(--card-bg); padding: 28px 34px; border-radius: 14px;
             border-left: 5px solid var(--grade-accent);
-            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.04); margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.04); margin-bottom: 35px;
         }
         .overview-card h2 { font-family: 'Playfair Display', serif; color: var(--primary-navy); font-size: 22px; margin-bottom: 8px; }
-        .overview-card p { font-size: 14px; color: var(--text-muted); }
-        .topic-group { margin-bottom: 42px; }
+        .overview-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+        .semester-jump { display: flex; flex-wrap: wrap; gap: 10px; }
+        .jump-btn {
+            display: inline-block; font-size: 13px; font-weight: 600;
+            color: var(--primary-navy); background: #F2EFE9;
+            padding: 7px 14px; border-radius: 20px; text-decoration: none; transition: 0.2s;
+        }
+        .jump-btn:hover { background: var(--grade-accent); color: #FFFFFF; }
+        .semester-divider {
+            margin: 45px 0 25px; padding: 12px 20px;
+            background: var(--primary-navy); color: #FFFFFF; border-radius: 10px;
+            font-family: 'Playfair Display', serif; font-size: 20px; letter-spacing: 0.5px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .semester-divider span {
+            font-family: 'Be Vietnam Pro', sans-serif; font-size: 12px;
+            color: var(--accent-ochre); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .topic-group { margin-bottom: 38px; }
         .topic-title {
-            font-family: 'Playfair Display', serif; font-size: 21px; color: var(--primary-navy);
-            margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid rgba(61, 90, 128, 0.35);
+            font-family: 'Playfair Display', serif; font-size: 20px; color: var(--primary-navy);
+            margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(61, 90, 128, 0.35);
             display: flex; align-items: center; gap: 10px;
         }
         .topic-badge {
             background: var(--grade-accent); color: #FFFFFF;
             font-family: 'Be Vietnam Pro', sans-serif; font-size: 11px; font-weight: 700;
-            padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px;
+            padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; white-space: nowrap;
         }
         .lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; }
         .lesson-card {
@@ -120,10 +138,11 @@
     </style>
 </head>
 <body>
+
     <header>
         <div class="brand-badge">HỒNG SƠN ART · KẾT NỐI TRI THỨC VỚI CUỘC SỐNG</div>
         <h1>HỌC LIỆU MỸ THUẬT 7</h1>
-        <p class="subtitle">Phát triển năng lực quan sát thực tế, kỹ thuật ký họa, biểu đạt cảm xúc và tạo hình không gian ba chiều</p>
+        <p class="subtitle">Hệ thống bài giảng điện tử, video hướng dẫn thực hành và phiếu học tập trọn bộ 8 Chủ đề (16 Bài học)</p>
     </header>
 
     <nav>
@@ -140,18 +159,28 @@
 
     <div class="container">
         <div class="overview-card">
-            <h2>Hướng dẫn sử dụng học liệu Mỹ thuật 7</h2>
-            <p>Học sinh truy cập từng chủ đề để xem hướng dẫn quy trình vẽ ký họa, tạo hình khối 3D, thiết kế đồ họa và tải phiếu học tập trước giờ thực hành.</p>
+            <h2>Mục lục Học liệu Mĩ thuật 7 (Cả năm học)</h2>
+            <p>Các em học sinh chọn đúng Chủ đề và Bài học theo phân phối chương trình để xem bài giảng minh họa, video hướng dẫn kỹ thuật và tải phiếu học tập trước giờ lên lớp.</p>
+            <div class="semester-jump">
+                <a href="#hoc-ky-1" class="jump-btn">↓ Học kỳ I (Chủ đề 1 – 4)</a>
+                <a href="#hoc-ky-2" class="jump-btn">↓ Học kỳ II (Chủ đề 5 – 8)</a>
+            </div>
         </div>
 
+        <!-- ==================== HỌC KỲ I ==================== -->
+        <div class="semester-divider" id="hoc-ky-1">
+            HỌC KỲ I <span>Chủ đề 1 – Chủ đề 4</span>
+        </div>
+
+        <!-- CHỦ ĐỀ 1 -->
         <div class="topic-group">
-            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 1 – 2</span> Nghệ thuật Trung đại & Cuộc sống quanh em</h2>
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 1</span> Mỹ thuật Việt Nam thời kỳ Trung đại</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
                     <div>
-                        <div class="lesson-num">Chủ đề 1</div>
-                        <h3>Mỹ thuật Việt Nam thời kỳ Trung đại</h3>
-                        <p>Khám phá kiến trúc, điêu khắc đình làng và họa tiết trang trí truyền thống đặc sắc của dân tộc.</p>
+                        <div class="lesson-num">Bài 1</div>
+                        <h3>Di sản mỹ thuật Việt Nam thời kỳ Trung đại</h3>
+                        <p>Tìm hiểu giá trị lịch sử, thẩm mỹ của kiến trúc, điêu khắc đình làng và tượng cổ Việt Nam.</p>
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
@@ -161,22 +190,41 @@
 
                 <div class="lesson-card">
                     <div>
-                        <div class="lesson-num">Chủ đề 2 · Bài 1</div>
-                        <h3>Ký họa dáng người và cảnh vật</h3>
-                        <p>Rèn luyện kỹ năng quan sát nhanh tỷ lệ, đường nét chuyển động của nhân vật trong sinh hoạt.</p>
+                        <div class="lesson-num">Bài 2</div>
+                        <h3>Họa tiết trang trí dân tộc trong thiết kế</h3>
+                        <p>Khai thác hoa văn mây, sóng nước, rồng phượng thời Lý – Trần – Lê để trang trí đồ vật ứng dụng.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
+                        <a href="#" class="res-btn btn-doc">📄 Phiếu học tập</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHỦ ĐỀ 2 -->
+        <div class="topic-group">
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 2</span> Cuộc sống quanh em</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 3</div>
+                        <h3>Ký họa dáng người trong hoạt động</h3>
+                        <p>Rèn luyện kỹ năng quan sát nhanh tỷ lệ cơ thể và diễn tả đường nét chuyển động sinh hoạt.</p>
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Video ký họa</a>
-                        <a href="#" class="res-btn btn-doc">📄 Phiếu học tập</a>
+                        <a href="#" class="res-btn btn-doc">📄 Tranh mẫu</a>
                     </div>
                 </div>
 
                 <div class="lesson-card">
                     <div>
-                        <div class="lesson-num">Chủ đề 2 · Bài 2</div>
-                        <h3>Tranh phong cảnh quê hương</h3>
-                        <p>Xây dựng bố cục xa – gần, hòa sắc không gian thiên nhiên và con người vùng Tây Nguyên.</p>
+                        <div class="lesson-num">Bài 4</div>
+                        <h3>Tranh vẽ cảnh sinh hoạt cộng đồng</h3>
+                        <p>Xây dựng bố cục nhóm nhân vật, không gian xa – gần và hòa sắc ấm áp của đời sống quê hương.</p>
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
@@ -186,30 +234,157 @@
             </div>
         </div>
 
+        <!-- CHỦ ĐỀ 3 -->
         <div class="topic-group">
-            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 3 – 4</span> Mỹ thuật ứng dụng & Tạo hình 3D</h2>
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 3</span> Nghệ thuật chữ và thiết kế ấn phẩm</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
                     <div>
-                        <div class="lesson-num">Chủ đề 3</div>
-                        <h3>Thiết kế chữ trang trí và bìa sách</h3>
-                        <p>Tìm hiểu nghệ thuật chữ (Typography), bố cục mảng hình và màu sắc trên ấn phẩm xuất bản.</p>
+                        <div class="lesson-num">Bài 5</div>
+                        <h3>Chữ trang trí trong đời sống</h3>
+                        <p>Tìm hiểu cấu trúc các kiểu chữ cơ bản và cách điệu chữ mang tính biểu cảm nghệ thuật.</p>
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
-                        <a href="#" class="res-btn btn-doc">📐 Mẫu chữ cơ bản</a>
+                        <a href="#" class="res-btn btn-doc">📐 Bảng mẫu chữ</a>
                     </div>
                 </div>
 
                 <div class="lesson-card">
                     <div>
-                        <div class="lesson-num">Chủ đề 4</div>
-                        <h3>Tạo hình sản phẩm từ vật liệu tái chế</h3>
-                        <p>Phát triển tư duy thiết kế bền vững, lắp ghép khối 3D từ bìa các-tông, chai nhựa và vật liệu sẵn có.</p>
+                        <div class="lesson-num">Bài 6</div>
+                        <h3>Thiết kế bìa sách</h3>
+                        <p>Kết hợp nghệ thuật chữ, hình ảnh minh họa và bố cục mảng màu trên bìa xuất bản phẩm.</p>
                     </div>
                     <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
-                        <a href="#" class="res-btn btn-video">🎬 Gợi ý sáng tạo</a>
+                        <a href="#" class="res-btn btn-video">🎬 Gợi ý thiết kế</a>
+                        <a href="#" class="res-btn btn-doc">📄 Phiếu học tập</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHỦ ĐỀ 4 -->
+        <div class="topic-group">
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 4</span> Nghệ thuật Phục hưng</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 7</div>
+                        <h3>Danh họa và tác phẩm thời kỳ Phục hưng</h3>
+                        <p>Khám phá quy luật phối cảnh, giải phẫu tạo hình và ánh sáng trong hội họa Phục hưng Ý.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-doc">🗺️ Sơ đồ tư duy</a>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 8</div>
+                        <h3>Vẽ tranh theo phong cách Phục hưng</h3>
+                        <p>Vận dụng luật xa gần một điểm tụ và đậm nhạt khối cầu, khối trụ vào bài vẽ tĩnh vật hoặc chân dung.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video thị phạm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== HỌC KỲ II ==================== -->
+        <div class="semester-divider" id="hoc-ky-2">
+            HỌC KỲ II <span>Chủ đề 5 – Chủ đề 8</span>
+        </div>
+
+        <!-- CHỦ ĐỀ 5 -->
+        <div class="topic-group">
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 5</span> Tạo hình 3D từ vật liệu tái chế</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 9</div>
+                        <h3>Tạo hình sản phẩm gia dụng từ vật liệu sẵn có</h3>
+                        <p>Thiết kế đồ dùng trang trí góc học tập từ chai nhựa, lõi giấy, bìa các-tông theo tư duy xanh.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Kỹ thuật lắp ghép</a>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 10</div>
+                        <h3>Mô hình phương tiện giao thông</h3>
+                        <p>Kết hợp các khối hình học cơ bản (trụ, hộp, nón) để tạo dáng phương tiện giao thông 3D.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-doc">📄 Phiếu thiết kế</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHỦ ĐỀ 6 -->
+        <div class="topic-group">
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 6</span> Giai điệu mùa xuân</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 11</div>
+                        <h3>Tranh in độc bản chủ đề mùa xuân</h3>
+                        <p>Thực hành kỹ thuật vẽ màu lên tấm kính/mica và in ép sang giấy tạo hiệu ứng chất cảm độc đáo.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video in độc bản</a>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Bài 12</div>
+                        <h3>Thiết kế thiệp chúc mừng ngày lễ, Tết</h3>
+                        <p>Sáng tạo thiệp nổi (Pop-up) kết hợp họa tiết hoa xuân và lời chúc ý nghĩa.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-doc">📐 Bản cắt gấp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHỦ ĐỀ 7 & 8 -->
+        <div class="topic-group">
+            <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 7 – 8</span> Di sản thế giới & Trưng bày nghệ thuật</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Chủ đề 7 · Bài 13 – 14</div>
+                        <h3>Khám phá kiến trúc và điêu khắc thế giới</h3>
+                        <p>Tìm hiểu các công trình kiến trúc tiêu biểu nhân loại và thực hành đắp phù điêu đất nặn.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-doc">🖼️ Tư liệu kiến trúc</a>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div>
+                        <div class="lesson-num">Chủ đề 8 · Bài 15 – 16</div>
+                        <h3>Thiết kế không gian triển lãm học đường</h3>
+                        <p>Lên ý tưởng trưng bày, làm khung tranh, bảng tên tác phẩm và thuyết trình sản phẩm cuối năm.</p>
+                    </div>
+                    <div class="resource-links">
+                        <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-doc">📄 Phiếu đánh giá</a>
                     </div>
                 </div>
             </div>
