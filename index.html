@@ -1,159 +1,505 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hồng Sơn ART | Học liệu Mỹ thuật THCS</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;color:#263746;background:#f7f7f3}
-header{background:#19364a;color:white;padding:55px 20px;text-align:center}
-header .brand{color:#f4c477;letter-spacing:3px;font-weight:bold}
-header h1{font-size:clamp(28px,5vw,46px);margin:15px 0}
-header p{line-height:1.7}
-nav{background:#e46e50;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
-nav a{color:white;text-decoration:none;margin:7px 12px;font-weight:bold;display:inline-block}
-main{max-width:1100px;margin:auto;padding:25px 20px}
-h2{color:#19364a}
-.hero{background:#fff;border-radius:16px;padding:30px;margin:20px 0;line-height:1.8}
-.search{width:100%;padding:15px;border:1px solid #ccc;border-radius:10px;font-size:16px;margin:10px 0 25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:white;border-radius:14px;padding:24px;box-shadow:0 4px 15px #0000000c}
-.card h3{color:#d9684d}
-.card p{line-height:1.7;color:#586674}
-.btn{display:inline-block;background:#19364a;color:white;padding:11px 17px;border-radius:8px;text-decoration:none}
-.btn:hover{background:#e46e50}
-.section{padding:25px 0}
-.resource{border-left:5px solid #e46e50}
-.resource a{color:#d9684d;font-weight:bold}
-.gallery{background:#fff;padding:25px;border-radius:14px;line-height:1.8}
-footer{background:#19364a;color:white;text-align:center;padding:30px 15px;line-height:1.8;margin-top:40px}
-.small{font-size:13px;color:#a9bac7}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học liệu Mỹ thuật THCS - Hồng Sơn Art</title>
+    <!-- Phông chữ nghệ thuật Playfair Display & Be Vietnam Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #F9F6F0;       /* Màu giấy vẽ mỹ thuật */
+            --primary-navy: #162B38;    /* Xanh Phổ đậm */
+            --accent-terracotta: #C85A32; /* Cam đất nung */
+            --accent-ochre: #D9A05B;    /* Vàng thổ hoàng */
+            --text-dark: #22252A;
+            --text-muted: #5A626A;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.65;
+            /* Hiệu ứng vân giấy mỹ thuật tinh tế */
+            background-image: radial-gradient(#dcd6c8 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
+
+        /* --- HEADER NGHỆ THUẬT --- */
+        header {
+            background: linear-gradient(135deg, #162B38 0%, #1F3C4D 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 65px 20px 55px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mảng hình học trang trí Bauhaus mờ ở nền Header */
+        header::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 28px solid rgba(217, 160, 91, 0.08);
+            pointer-events: none;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            right: -40px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(200, 90, 50, 0.12);
+            pointer-events: none;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            color: var(--accent-ochre);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border: 1px solid rgba(217, 160, 91, 0.4);
+            border-radius: 30px;
+            margin-bottom: 18px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        header .slogan {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #E2D9C8;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .divider-art {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-terracotta);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        header .school {
+            font-size: 13px;
+            color: #B8C4CC;
+            letter-spacing: 0.8px;
+            line-height: 1.6;
+        }
+
+        /* --- THANH ĐIỀU HƯỚNG (NAV) --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(22, 43, 56, 0.08);
+            text-align: center;
+            padding: 15px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        nav a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            padding: 6px 0;
+            transition: color 0.25s;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2.5px;
+            background-color: var(--accent-terracotta);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-terracotta);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- CONTAINER CHÍNH --- */
+        .container {
+            max-width: 1080px;
+            margin: 45px auto;
+            padding: 0 24px;
+        }
+
+        /* --- KHUNG CHÀO MỪNG PHONG CÁCH STUDIO --- */
+        .welcome-box {
+            background: var(--card-bg);
+            padding: 40px 45px;
+            border-radius: 16px;
+            border-left: 6px solid var(--accent-terracotta);
+            box-shadow: 0 10px 30px rgba(22, 43, 56, 0.05);
+            margin-bottom: 55px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .welcome-text {
+            flex: 1 1 550px;
+        }
+
+        .welcome-box h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .welcome-box p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .welcome-box .cta-quote {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent-terracotta);
+            font-size: 15px;
+        }
+
+        .palette-dots {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        /* --- TIÊU ĐỀ PHÂN MỤC --- */
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid rgba(22, 43, 56, 0.1);
+            padding-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .section-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* --- LƯỚI THẺ KHỐI LỚP --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(22, 43, 56, 0.06);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 16px 36px rgba(22, 43, 56, 0.12);
+        }
+
+        /* Dải màu nghệ thuật đầu mỗi thẻ */
+        .card-banner {
+            height: 12px;
+            width: 100%;
+        }
+        .c6 { background: linear-gradient(90deg, #E07A5F, #F2CC8F); } /* Sắc màu cơ bản */
+        .c7 { background: linear-gradient(90deg, #3D5A80, #98C1D9); } /* Quan sát & Biểu đạt */
+        .c8 { background: linear-gradient(90deg, #2A9D8F, #E9C46A); } /* Thiết kế & Ứng dụng */
+        .c9 { background: linear-gradient(90deg, #6D597A, #B56576); } /* Nghệ thuật đương đại */
+
+        .card-body {
+            padding: 26px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .grade-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 26px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary-navy);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-terracotta);
+            gap: 12px;
+        }
+
+        /* --- KHỐI TIỆN ÍCH / TRIỂN LÃM NHANH --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: #FFFFFF;
+            padding: 28px;
+            border-radius: 14px;
+            border: 1px dashed rgba(22, 43, 56, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--accent-terracotta);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-navy);
+            color: #B8C4CC;
+            text-align: center;
+            padding: 36px 20px;
+            font-size: 13px;
+            margin-top: 60px;
+        }
+
+        footer strong {
+            color: var(--accent-ochre);
+        }
+
+        @media (max-width: 600px) {
+            nav a { margin: 0 10px; font-size: 13px; }
+            .welcome-box { padding: 28px 24px; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-<div class="brand">HỒNG SƠN ART</div>
-<h1>HỌC LIỆU MỸ THUẬT THCS</h1>
-<p>KHÁM PHÁ · TRẢI NGHIỆM · SÁNG TẠO</p>
-<p>TRƯỜNG THCS CAO BÁ QUÁT<br>
-XÃ CHƯ SÊ – TỈNH GIA LAI</p>
-</header>
+    <header>
+        <div class="brand-badge">HỒNG SƠN ART · STUDIO</div>
+        <h1>HỌC LIỆU MỸ THUẬT THCS</h1>
+        <div class="slogan">KHÁM PHÁ · TRẢI NGHIỆM · SÁNG TẠO</div>
+        <div class="divider-art"></div>
+        <div class="school">
+            Tổ Giáo dục thể chất – Nghệ thuật · Trường THCS Cao Bá Quát<br>
+            Xã Chư Sê – Tỉnh Gia Lai
+        </div>
+    </header>
 
-<nav>
-<a href="#trangchu">Trang chủ</a>
-<a href="#khoilop">Khối lớp</a>
-<a href="#tailieu">Học liệu</a>
-<a href="#trienlam">Triển lãm</a>
-<a href="#gioithieu">Giới thiệu</a>
-</nav>
+    <nav>
+        <a href="#trang-chu">Trang chủ</a>
+        <a href="#khoi-lop">Khối lớp</a>
+        <a href="#hoc-lieu">Kho học liệu</a>
+        <a href="#trien-lam">Góc triển lãm</a>
+        <a href="#gioi-thieu">Giới thiệu</a>
+    </nav>
 
-<main>
-<section class="hero" id="trangchu">
-<h2>Chào mừng đến với không gian Mỹ thuật</h2>
-<p>Website chia sẻ học liệu môn Mỹ thuật cấp THCS, hỗ trợ giáo viên tổ chức hoạt động dạy học và giúp học sinh khám phá, thực hành, phát triển năng lực sáng tạo nghệ thuật.</p>
-<strong>Hãy bắt đầu hành trình sáng tạo của em!</strong>
-</section>
+    <div class="container">
+        <!-- Khung chào mừng -->
+        <section class="welcome-box" id="trang-chu">
+            <div class="welcome-text">
+                <h2>Chào mừng đến với không gian Mỹ thuật</h2>
+                <p>Website lưu trữ và chia sẻ học liệu môn Mỹ thuật cấp THCS (Bộ sách <em>Kết nối tri thức với cuộc sống</em>), hỗ trợ tổ chức hoạt động dạy học trực quan và khơi gợi cảm hứng sáng tạo nghệ thuật cho học sinh.</p>
+                <div class="cta-quote">“Mỗi nét vẽ là một góc nhìn – Hãy bắt đầu hành trình sáng tạo của em!”</div>
+            </div>
+            <div class="palette-dots" title="Bảng màu cảm hứng">
+                <span class="dot" style="background:#162B38;"></span>
+                <span class="dot" style="background:#C85A32;"></span>
+                <span class="dot" style="background:#D9A05B;"></span>
+                <span class="dot" style="background:#2A9D8F;"></span>
+                <span class="dot" style="background:#6D597A;"></span>
+            </div>
+        </section>
 
-<section class="section" id="khoilop">
-<h2>HỌC LIỆU THEO KHỐI LỚP</h2>
-<p>Lựa chọn khối lớp để khám phá nội dung học tập.</p>
-<div class="grid">
-<div class="card">
-<h3>MỸ THUẬT 6</h3>
-<p>Khám phá nghệ thuật, tạo hình và biểu cảm của màu sắc.</p>
-<a class="btn" href="#tailieu">Khám phá</a>
-</div>
-<div class="card">
-<h3>MỸ THUẬT 7</h3>
-<p>Phát triển khả năng quan sát, biểu đạt và sáng tạo.</p>
-<a class="btn" href="#tailieu">Khám phá</a>
-</div>
-<div class="card">
-<h3>MỸ THUẬT 8</h3>
-<p>Thiết kế, ứng dụng và sáng tạo sản phẩm mỹ thuật.</p>
-<a class="btn" href="#tailieu">Khám phá</a>
-</div>
-<div class="card">
-<h3>MỸ THUẬT 9</h3>
-<p>Khám phá nghệ thuật đương đại và định hướng sáng tạo.</p>
-<a class="btn" href="#tailieu">Khám phá</a>
-</div>
-</div>
-</section>
+        <!-- Khu vực Khối lớp -->
+        <section id="khoi-lop">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Học liệu theo khối lớp</h2>
+                    <p class="section-sub">Lựa chọn khối lớp để truy cập bài giảng, tranh minh họa và phiếu thực hành</p>
+                </div>
+            </div>
 
-<section class="section" id="tailieu">
-<h2>THƯ VIỆN HỌC LIỆU</h2>
-<p>Tìm kiếm tài liệu theo tên hoặc chủ đề.</p>
-<input class="search" id="search" type="text" placeholder="Nhập tên học liệu cần tìm...">
-<div class="grid" id="resources">
-<div class="card resource">
-<h3>Giáo án Mỹ thuật</h3>
-<p>Kế hoạch bài dạy, hoạt động học tập và đánh giá.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-<div class="card resource">
-<h3>Phiếu học tập</h3>
-<p>Phiếu nhiệm vụ, câu hỏi khám phá và thực hành.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-<div class="card resource">
-<h3>Video bài học</h3>
-<p>Video minh họa kỹ thuật và quy trình sáng tạo.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-<div class="card resource">
-<h3>Hình ảnh mỹ thuật</h3>
-<p>Tư liệu trực quan phục vụ hoạt động quan sát, phân tích.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-<div class="card resource">
-<h3>Đánh giá sản phẩm</h3>
-<p>Bảng kiểm, rubric và tiêu chí đánh giá học tập.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-<div class="card resource">
-<h3>Ứng dụng AI</h3>
-<p>Các công cụ AI hỗ trợ dạy học và sáng tạo.</p>
-<a href="#gioithieu">Đang cập nhật</a>
-</div>
-</div>
-</section>
+            <div class="grid">
+                <!-- Lớp 6 -->
+                <div class="card">
+                    <div class="card-banner c6"></div>
+                    <div class="card-body">
+                        <div>
+                            <div class="grade-tag">Chương trình GDPT 2018</div>
+                            <h3>Mỹ thuật 6</h3>
+                            <p>Khám phá nghệ thuật, nguyên lý tạo hình cơ bản và biểu cảm của màu sắc.</p>
+                        </div>
+                        <a href="my-thuat-6.html" class="btn">Khám phá bài học <span>→</span></a>
+                    </div>
+                </div>
 
-<section class="section" id="trienlam">
-<h2>GÓC SÁNG TẠO – TRIỂN LÃM HỌC SINH</h2>
-<div class="gallery">
-<p><strong>Nơi giới thiệu những ý tưởng và sản phẩm nghệ thuật của học sinh.</strong></p>
-<p>Các tác phẩm tranh vẽ, tranh in, sản phẩm tạo hình 3D, thiết kế ứng dụng và hoạt động mỹ thuật của học sinh sẽ được cập nhật tại đây.</p>
-<p><em>Thư viện sản phẩm đang được xây dựng.</em></p>
-</div>
-</section>
+                <!-- Lớp 7 -->
+                <div class="card">
+                    <div class="card-banner c7"></div>
+                    <div class="card-body">
+                        <div>
+                            <div class="grade-tag">Chương trình GDPT 2018</div>
+                            <h3>Mỹ thuật 7</h3>
+                            <p>Phát triển kỹ năng quan sát, ký họa, biểu đạt cảm xúc và sáng tạo hình khối.</p>
+                        </div>
+                        <a href="my-thuat-7.html" class="btn">Khám phá bài học <span>→</span></a>
+                    </div>
+                </div>
 
-<section class="section" id="gioithieu">
-<h2>GIỚI THIỆU</h2>
-<div class="gallery">
-<p><strong>Người phụ trách nội dung: Hồng Sơn</strong></p>
-<p>Giáo viên Mỹ thuật – Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai.</p>
-<p>Website hướng tới xây dựng môi trường học tập trực quan, sáng tạo, góp phần phát triển phẩm chất và năng lực học sinh theo Chương trình Giáo dục phổ thông 2018.</p>
-</div>
-</section>
-</main>
+                <!-- Lớp 8 -->
+                <div class="card">
+                    <div class="card-banner c8"></div>
+                    <div class="card-body">
+                        <div>
+                            <div class="grade-tag">Chương trình GDPT 2018</div>
+                            <h3>Mỹ thuật 8</h3>
+                            <p>Thiết kế đồ họa, mỹ thuật ứng dụng, họa tiết dân tộc và sản phẩm thủ công.</p>
+                        </div>
+                        <a href="my-thuat-8.html" class="btn">Khám phá bài học <span>→</span></a>
+                    </div>
+                </div>
 
-<footer>
-<strong>HỒNG SƠN ART – HỌC LIỆU MỸ THUẬT THCS</strong>
-<p>Trường THCS Cao Bá Quát – Chư Sê – Gia Lai</p>
-<div class="small">© 2026 · Website học liệu giáo dục</div>
-</footer>
+                <!-- Lớp 9 -->
+                <div class="card">
+                    <div class="card-banner c9"></div>
+                    <div class="card-body">
+                        <div>
+                            <div class="grade-tag">Chương trình GDPT 2018</div>
+                            <h3>Mỹ thuật 9</h3>
+                            <p>Khám phá nghệ thuật đương đại, thiết kế sáng tạo và định hướng nghề nghiệp.</p>
+                        </div>
+                        <a href="my-thuat-9.html" class="btn">Khám phá bài học <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script>
-document.getElementById("search").addEventListener("input",function(){
-const keyword=this.value.toLowerCase();
-document.querySelectorAll("#resources .card").forEach(function(card){
-card.style.display=card.innerText.toLowerCase().includes(keyword)?"block":"none";
-});
-});
-</script>
+        <!-- Khu vực Góc triển lãm & Học liệu mở rộng -->
+        <section id="trien-lam">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Không gian Trưng bày & Tư liệu</h2>
+                    <p class="section-sub">Lưu giữ sản phẩm thực hành tiêu biểu của học sinh Trường THCS Cao Bá Quát</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card" id="hoc-lieu">
+                    <h4>🎨 Kho tư liệu & Video hướng dẫn</h4>
+                    <p>Tổng hợp video thị phạm kỹ thuật vẽ màu nước, chì màu, xé dán giấy và sơ đồ tư duy tóm tắt kiến thức từng chủ đề.</p>
+                </div>
+                <div class="feature-card" id="gioi-thieu">
+                    <h4>🖼️ Phòng tranh trực tuyến học sinh</h4>
+                    <p>Trưng bày các bài vẽ, sản phẩm thiết kế thời trang, mô hình kiến trúc xuất sắc theo từng học kỳ của các khối lớp.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>HỒNG SƠN ART</strong> · Kênh học liệu điện tử môn Mỹ thuật</p>
+        <p style="margin-top: 6px;">Giáo viên thực hiện: Đỗ Hồng Sơn · Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai</p>
+    </footer>
+
 </body>
 </html>
