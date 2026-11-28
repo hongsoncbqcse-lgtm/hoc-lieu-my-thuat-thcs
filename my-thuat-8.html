@@ -387,7 +387,88 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- ==================== KHO HỌC LIỆU TỰ ĐỘNG TỪ GOOGLE SHEETS ==================== -->
+        <div class="topic-group" id="auto-sheet-section" style="margin-top: 50px;">
+            <h2 class="topic-title">
+                <span class="topic-badge" style="background-color: var(--accent-terracotta);">CẬP NHẬT TRỰC TUYẾN</span> 
+                Kho bài giảng & Học liệu bổ sung (Tự động từ Google Sheets)
+            </h2>
+            <div id="sheet-cards-container" class="lesson-grid">
+                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                    Đang tải học liệu mới nhất từ hệ thống...
+                </div>
+            </div>
+        </div>
+    </div> <!-- Đóng thẻ div.container hiện có của trang -->
+
+    <script>
+        (function() {
+            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
+            
+            // Tự động nhận diện số khối lớp từ tên tệp (6, 7, 8 hoặc 9)
+            const path = window.location.pathname;
+            let currentGrade = "6";
+            if (path.includes("7")) currentGrade = "7";
+            else if (path.includes("8")) currentGrade = "8";
+            else if (path.includes("9")) currentGrade = "9";
+
+            function parseCSV(text) {
+                const rows = [];
+                let row = [], val = "", inQuotes = false;
+                for (let i = 0; i < text.length; i++) {
+                    const c = text[i], nc = text[i + 1];
+                    if (c === '"') {
+                        if (inQuotes && nc === '"') { val += '"'; i++; }
+                        else { inQuotes = !inQuotes; }
+                    } else if (c === ',' && !inQuotes) {
+                        row.push(val.trim()); val = "";
+                    } else if ((c === '\n' || (c === '\r' && nc === '\n')) && !inQuotes) {
+                        row.push(val.trim()); rows.push(row); row = []; val = "";
+                        if (c === '\r') i++;
+                    } else { val += c; }
+                }
+                if (val || row.length > 0) { row.push(val.trim()); rows.push(row); }
+                return rows;
+            }
+
+            fetch(CSV_URL)
+                .then(res => res.text())
+                .then(text => {
+                    const rows = parseCSV(text).slice(1);
+                    const container = document.getElementById("sheet-cards-container");
+                    
+                    // Lọc đúng các dòng thuộc khối lớp của trang hiện tại
+                    const gradeItems = rows.filter(r => r.length >= 6 && r[0].includes(currentGrade) && r[3] && r[5]);
+
+                    if (gradeItems.length === 0) {
+                        container.innerHTML = `
+                            <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                                Chưa có học liệu bổ sung nào cho Lớp ${currentGrade} trên bảng tính. Anh Sơn chỉ cần nhập thêm dòng mới vào Google Sheets là mục này sẽ tự động hiển thị!
+                            </div>`;
+                        return;
+                    }
+
+                    container.innerHTML = gradeItems.map(item => `
+                        <div class="lesson-card">
+                            <div>
+                                <div class="lesson-num">${item[1] ? item[1] + " · " : ""}${item[4] || "Học liệu"}</div>
+                                <h3>${item[3]}</h3>
+                                <p class="lesson-desc">${item[2] || "Tài liệu học tập trực tuyến môn Mỹ thuật"}</p>
+                            </div>
+                            <div class="resource-links">
+                                <a href="${item[5]}" target="_blank" class="res-btn btn-slide">📂 Mở học liệu ↗</a>
+                            </div>
+                        </div>
+                    `).join("");
+                })
+                .catch(() => {
+                    document.getElementById("sheet-cards-container").innerHTML = `
+                        <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                            Không thể kết nối tới Google Sheets lúc này.
+                        </div>`;
+                });
+        })();
+    </script>
 
     <footer>
         <p><strong>HỒNG SƠN ART</strong> · Kênh học liệu điện tử môn Mỹ thuật THCS</p>
