@@ -3,86 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mỹ thuật 8 - Học liệu Mỹ thuật THCS | Hồng Sơn Art</title>
+    <title>Mỹ thuật 8 - Studio Học liệu & Triển lãm Số | Hồng Sơn Art</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-canvas: #F9F6F0;
-            --primary-navy: #162B38;
+            --bg-canvas: #F8F5EE;
+            --primary-navy: #142734;
             --accent-terracotta: #C85A32;
             --accent-ochre: #D9A05B;
             --grade-accent: #8C4A32;
-            --text-dark: #22252A;
+            --grade-accent-soft: #C86D51;
+            --text-dark: #1E2229;
             --text-muted: #5A626A;
             --card-bg: #FFFFFF;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-canvas);
             color: var(--text-dark);
             font-family: 'Be Vietnam Pro', sans-serif;
             line-height: 1.65;
-            background-image: radial-gradient(#dcd6c8 0.75px, transparent 0.75px);
-            background-size: 24px 24px;
+            background-image:
+                radial-gradient(rgba(20, 39, 52, 0.055) 1px, transparent 1px),
+                radial-gradient(rgba(200, 90, 50, 0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
         }
 
+        /* ==================== STUDIO HEADER ==================== */
         header {
-            background: linear-gradient(135deg, #162B38 0%, #1F3C4D 100%);
+            background: radial-gradient(circle at 85% 20%, rgba(217, 160, 91, 0.22) 0%, transparent 45%),
+                        radial-gradient(circle at 12% 85%, rgba(200, 90, 50, 0.25) 0%, transparent 45%),
+                        linear-gradient(135deg, #10202B 0%, #1C3748 60%, #24465B 100%);
             color: #FFFFFF;
             text-align: center;
-            padding: 45px 20px 40px;
+            padding: 52px 20px 46px;
             position: relative;
             overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 60 Q 35 20, 60 60 T 110 60' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='2' fill='none'/%3E%3Ccircle cx='90' cy='30' r='14' stroke='%23D9A05B' stroke-opacity='0.07' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
 
         header::after {
             content: "";
             position: absolute;
             bottom: 0; left: 0; width: 100%; height: 6px;
-            background: linear-gradient(90deg, #8C4A32, #E09F7D);
+            background: linear-gradient(90deg, var(--grade-accent), var(--accent-ochre), var(--accent-terracotta));
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            margin: 0 auto;
         }
 
         .brand-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(217, 160, 91, 0.35);
+            padding: 6px 16px;
+            border-radius: 30px;
             color: var(--accent-ochre);
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 4.5vw, 40px);
+            font-size: clamp(30px, 5vw, 44px);
             font-weight: 700;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
         }
 
         header .subtitle {
-            font-size: 14px;
-            color: #E2D9C8;
+            font-size: 14.5px;
+            color: #E6DEC8;
             max-width: 680px;
-            margin: 0 auto;
+            margin: 0 auto 22px;
         }
 
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        /* Thanh tìm kiếm bài học nhanh trên Header */
+        .hero-search-wrap {
+            max-width: 540px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-search-input {
+            width: 100%;
+            padding: 13px 44px 13px 20px;
+            border-radius: 30px;
+            border: 2px solid rgba(217, 160, 91, 0.45);
+            background: rgba(255, 255, 255, 0.96);
+            color: var(--primary-navy);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            outline: none;
+            transition: all 0.25s;
+        }
+        .hero-search-input:focus {
+            border-color: var(--accent-ochre);
+            background: #FFFFFF;
+            box-shadow: 0 12px 30px rgba(217, 160, 91, 0.35);
+        }
+
+        .hero-search-clear {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #E2E8F0;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-navy);
+        }
+
+        /* ==================== STICKY NAVIGATION ==================== */
         nav {
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(22, 43, 56, 0.08);
-            padding: 14px 20px;
+            padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         .nav-inner {
-            max-width: 1080px;
+            max-width: 1120px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -98,40 +194,60 @@
             color: var(--accent-terracotta);
             text-decoration: none;
             font-weight: 700;
-            font-size: 14px;
-            padding: 6px 14px;
-            border-radius: 6px;
-            background: rgba(200, 90, 50, 0.08);
+            font-size: 13.5px;
+            padding: 7px 15px;
+            border-radius: 8px;
+            background: rgba(200, 90, 50, 0.09);
             transition: all 0.2s;
         }
-        .back-home:hover { background: var(--accent-terracotta); color: #FFFFFF; }
+        .back-home:hover { background: var(--accent-terracotta); color: #FFFFFF; transform: translateX(-2px); }
 
+        .grade-switcher {
+            display: flex;
+            gap: 6px;
+            background: #F1EDE4;
+            padding: 4px;
+            border-radius: 10px;
+        }
         .grade-switcher a {
             color: var(--primary-navy);
             text-decoration: none;
-            margin-left: 16px;
             font-size: 13px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 6px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 7px;
             transition: 0.2s;
         }
-        .grade-switcher a.active { background-color: var(--primary-navy); color: #FFFFFF; }
-        .grade-switcher a:hover:not(.active) { color: var(--accent-terracotta); }
+        .grade-switcher a.active {
+            background-color: var(--primary-navy);
+            color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(20, 39, 52, 0.2);
+        }
+        .grade-switcher a:hover:not(.active) { color: var(--accent-terracotta); background: rgba(255,255,255,0.6); }
 
         .container {
-            max-width: 1080px;
-            margin: 40px auto;
+            max-width: 1120px;
+            margin: 36px auto;
             padding: 0 24px;
+        }
+
+        /* ==================== OVERVIEW & STUDIO PALETTE CARD ==================== */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 22px;
+            margin-bottom: 38px;
         }
 
         .overview-card {
             background: var(--card-bg);
-            padding: 28px 34px;
-            border-radius: 14px;
-            border-left: 5px solid var(--grade-accent);
-            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.04);
-            margin-bottom: 35px;
+            padding: 28px 30px;
+            border-radius: 16px;
+            border-top: 5px solid var(--grade-accent);
+            box-shadow: 0 10px 28px rgba(22, 43, 56, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .overview-card h2 {
@@ -142,7 +258,7 @@
         }
 
         .overview-card p {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--text-muted);
             margin-bottom: 18px;
         }
@@ -150,9 +266,9 @@
         .textbook-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             padding-bottom: 18px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             border-bottom: 1px dashed rgba(22, 43, 56, 0.12);
         }
 
@@ -160,85 +276,146 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 13.5px;
-            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.2s;
         }
 
-        .btn-sgk { background-color: var(--primary-navy); color: #FFFFFF; }
-        .btn-sgk:hover { background-color: #25465B; transform: translateY(-2px); }
+        .btn-sgk { background-color: var(--primary-navy); color: #FFFFFF; box-shadow: 0 4px 12px rgba(20,39,52,0.18); }
+        .btn-sgk:hover { background-color: #24465B; transform: translateY(-2px); }
 
         .btn-sgv {
-            background-color: #EDF2F7;
+            background-color: #F4F7FA;
             color: var(--grade-accent);
-            border: 1px solid rgba(22, 43, 56, 0.18);
+            border: 1px solid rgba(22, 43, 56, 0.15);
         }
         .btn-sgv:hover { background-color: var(--grade-accent); color: #FFFFFF; transform: translateY(-2px); }
 
-        .semester-jump { display: flex; flex-wrap: wrap; gap: 10px; }
+        .semester-jump { display: flex; flex-wrap: wrap; gap: 8px; }
 
         .jump-btn {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12.5px;
+            font-weight: 700;
             color: var(--primary-navy);
-            background: #F2EFE9;
+            background: #F4F0E8;
             padding: 7px 14px;
             border-radius: 20px;
             text-decoration: none;
             transition: 0.2s;
         }
-        .jump-btn:hover { background: var(--grade-accent); color: #FFFFFF; }
+        .jump-btn:hover { background: var(--grade-accent); color: #FFFFFF; transform: translateY(-1px); }
 
         .jump-btn-gallery {
-            background: #FDF0EC;
+            background: linear-gradient(135deg, #FDF0EC 0%, #FCE3DB 100%);
             color: var(--accent-terracotta);
-            border: 1px solid rgba(200, 90, 50, 0.2);
+            border: 1px solid rgba(200, 90, 50, 0.25);
         }
         .jump-btn-gallery:hover {
             background: var(--accent-terracotta);
             color: #FFFFFF;
         }
 
-        .semester-divider {
-            margin: 45px 0 25px;
-            padding: 14px 22px;
-            background: var(--primary-navy);
-            color: #FFFFFF;
-            border-radius: 10px;
+        /* Bảng gợi ý hòa sắc tương tác */
+        .palette-studio-card {
+            background: var(--card-bg);
+            padding: 24px 26px;
+            border-radius: 16px;
+            border-top: 5px solid var(--accent-ochre);
+            box-shadow: 0 10px 28px rgba(22, 43, 56, 0.05);
+        }
+        .palette-studio-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .palette-studio-header h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
+            color: var(--primary-navy);
+        }
+        .copy-toast {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2E7D6B;
+            background: #E6F4F1;
+            padding: 3px 8px;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .copy-toast.show { opacity: 1; }
+
+        .palette-list { display: flex; flex-direction: column; gap: 10px; }
+        .palette-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: #FAF8F3;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(22,43,56,0.06);
+        }
+        .palette-swatches { display: flex; gap: 4px; }
+        .swatch-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+        .swatch-dot:hover { transform: scale(1.22); z-index: 2; }
+        .palette-meta { text-align: right; }
+        .palette-meta strong { display: block; font-size: 12px; color: var(--primary-navy); }
+        .palette-meta span { display: block; font-size: 10.5px; color: var(--text-muted); }
+
+        /* ==================== SEMESTER & TOPIC CARDS ==================== */
+        .semester-divider {
+            margin: 46px 0 26px;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #142734 0%, #203D50 100%);
+            color: #FFFFFF;
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
+            box-shadow: 0 8px 20px rgba(20, 39, 52, 0.12);
         }
 
         .semester-divider span {
             font-family: 'Be Vietnam Pro', sans-serif;
             font-size: 12px;
             color: var(--accent-ochre);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
-        .topic-group { margin-bottom: 38px; }
+        .topic-group { margin-bottom: 40px; }
 
         .topic-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 21px;
             color: var(--primary-navy);
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(22, 43, 56, 0.15);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(22, 43, 56, 0.12);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -246,43 +423,83 @@
             background: var(--grade-accent);
             color: #FFFFFF;
             font-family: 'Be Vietnam Pro', sans-serif;
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
+            letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
         .lesson-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
         }
 
         .lesson-card {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 24px;
-            border: 1px solid rgba(22, 43, 56, 0.07);
-            box-shadow: 0 6px 18px rgba(22, 43, 56, 0.04);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(22, 43, 56, 0.08);
+            box-shadow: 0 8px 22px rgba(22, 43, 56, 0.045);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
-        .lesson-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(22, 43, 56, 0.09); }
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(22, 43, 56, 0.11);
+        }
 
-        .lesson-num {
-            font-size: 12px;
-            font-weight: 700;
+        .lesson-art-banner {
+            height: 54px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .lesson-art-banner svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .lesson-pill-tag {
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            background: rgba(255, 255, 255, 0.94);
             color: var(--grade-accent);
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 4px 11px;
+            border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
+            letter-spacing: 0.8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
         }
 
-        .lesson-card h3 { color: var(--primary-navy); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-        .lesson-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px; }
+        .lesson-card-body {
+            padding: 20px 24px 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .lesson-card h3 {
+            color: var(--primary-navy);
+            font-size: 17.5px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .lesson-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.65;
+        }
 
         .resource-links {
             display: flex;
@@ -295,25 +512,31 @@
         .res-btn {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-size: 12.5px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            padding: 7px 13px;
-            border-radius: 6px;
-            transition: 0.2s;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
-        .res-btn[href="#"] { opacity: 0.55; cursor: default; }
-        .res-btn[href="#"]:hover { transform: none; }
+        .res-btn.is-pending {
+            background-color: #F4F5F7 !important;
+            color: #8A949E !important;
+            border: 1px dashed #CBD5E1;
+            cursor: default;
+            font-weight: 500;
+        }
+        .res-btn.is-pending:hover { transform: none !important; }
 
-        .btn-slide { background-color: #EEF3F7; color: var(--primary-navy); }
-        .btn-slide:hover { background-color: var(--primary-navy); color: #FFFFFF; }
+        .btn-slide { background-color: #EBF2F7; color: var(--primary-navy); }
+        .btn-slide:hover { background-color: var(--primary-navy); color: #FFFFFF; transform: translateY(-1px); }
 
         .btn-video { background-color: #FDF0EC; color: var(--accent-terracotta); }
-        .btn-video:hover { background-color: var(--accent-terracotta); color: #FFFFFF; }
+        .btn-video:hover { background-color: var(--accent-terracotta); color: #FFFFFF; transform: translateY(-1px); }
 
-        .btn-doc { background-color: #FBF5EA; color: #9A6726; }
-        .btn-doc:hover { background-color: var(--accent-ochre); color: #FFFFFF; }
+        .btn-doc { background-color: #FBF4E6; color: #94601E; }
+        .btn-doc:hover { background-color: var(--accent-ochre); color: #FFFFFF; transform: translateY(-1px); }
 
         /* ==================== PHÒNG TRIỂN LÃM MỸ THUẬT SỐ ==================== */
         .gallery-toolbar {
@@ -324,10 +547,10 @@
             gap: 16px;
             background: #FFFFFF;
             padding: 18px 22px;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid rgba(22, 43, 56, 0.08);
-            box-shadow: 0 6px 20px rgba(22, 43, 56, 0.04);
-            margin-bottom: 24px;
+            box-shadow: 0 8px 22px rgba(22, 43, 56, 0.045);
+            margin-bottom: 26px;
         }
         .exhibition-actions {
             display: flex;
@@ -341,7 +564,7 @@
             background: linear-gradient(135deg, #C85A32 0%, #A8431F 100%);
             color: #FFFFFF !important;
             padding: 11px 20px;
-            border-radius: 8px;
+            border-radius: 9px;
             font-size: 13.5px;
             font-weight: 700;
             text-decoration: none;
@@ -354,10 +577,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #162B38;
-            color: #D9A05B !important;
+            background-color: var(--primary-navy);
+            color: var(--accent-ochre) !important;
             padding: 11px 20px;
-            border-radius: 8px;
+            border-radius: 9px;
             font-size: 13.5px;
             font-weight: 700;
             text-decoration: none;
@@ -374,26 +597,26 @@
         .filter-label {
             font-size: 12.5px;
             font-weight: 700;
-            color: #5A626A;
+            color: var(--text-muted);
             margin-right: 4px;
         }
         .filter-chip {
             border: 1px solid rgba(22, 43, 56, 0.15);
             background: #F9F6F0;
-            color: #162B38;
+            color: var(--primary-navy);
             font-family: 'Be Vietnam Pro', sans-serif;
             font-size: 12.5px;
-            font-weight: 600;
+            font-weight: 700;
             padding: 6px 14px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .filter-chip:hover { border-color: #C85A32; color: #C85A32; }
+        .filter-chip:hover { border-color: var(--accent-terracotta); color: var(--accent-terracotta); }
         .filter-chip.active {
-            background: #162B38;
+            background: var(--primary-navy);
             color: #FFFFFF;
-            border-color: #162B38;
+            border-color: var(--primary-navy);
         }
 
         .gallery-grid {
@@ -419,17 +642,17 @@
         }
 
         .artwork-matboard {
-            background: #F4EFE6;
+            background: #F3EDE2;
             padding: 16px;
             border-bottom: 1px solid rgba(22, 43, 56, 0.06);
             position: relative;
         }
         .artwork-img-wrap {
             width: 100%;
-            height: 230px;
+            height: 235px;
             background: #E5DFD3;
-            border: 4px solid #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border: 5px solid #FFFFFF;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.13);
             overflow: hidden;
             position: relative;
         }
@@ -447,8 +670,8 @@
             position: absolute;
             top: 24px;
             right: 24px;
-            background: rgba(22, 43, 56, 0.9);
-            color: #D9A05B;
+            background: rgba(20, 39, 52, 0.92);
+            color: var(--accent-ochre);
             font-size: 11.5px;
             font-weight: 700;
             padding: 4px 12px;
@@ -460,7 +683,7 @@
             position: absolute;
             bottom: 24px;
             left: 24px;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.68);
             color: #FFFFFF;
             font-size: 11px;
             font-weight: 600;
@@ -482,7 +705,7 @@
         .artwork-lesson {
             font-size: 11.5px;
             font-weight: 700;
-            color: #C85A32;
+            color: var(--accent-terracotta);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
@@ -491,12 +714,12 @@
             font-family: 'Playfair Display', serif;
             font-size: 19px;
             font-weight: 700;
-            color: #162B38;
+            color: var(--primary-navy);
             margin-bottom: 10px;
         }
         .artwork-note {
             font-size: 13.5px;
-            color: #5A626A;
+            color: var(--text-muted);
             line-height: 1.65;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -517,7 +740,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(14, 24, 32, 0.92);
+            background: rgba(12, 22, 30, 0.93);
             backdrop-filter: blur(8px);
             z-index: 9999;
             padding: 24px;
@@ -530,24 +753,24 @@
 
         .lightbox-dialog {
             background: #FFFFFF;
-            max-width: 1060px;
+            max-width: 1080px;
             width: 100%;
             max-height: 90vh;
-            border-radius: 16px;
+            border-radius: 18px;
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            grid-template-columns: 1.38fr 1fr;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
             position: relative;
         }
         .lightbox-close {
             position: absolute;
             top: 14px;
             right: 14px;
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(22, 43, 56, 0.85);
+            background: rgba(20, 39, 52, 0.88);
             color: #FFFFFF;
             border: none;
             font-size: 20px;
@@ -558,14 +781,14 @@
             z-index: 10;
             transition: 0.2s;
         }
-        .lightbox-close:hover { background: #C85A32; transform: rotate(90deg); }
+        .lightbox-close:hover { background: var(--accent-terracotta); transform: rotate(90deg); }
 
         .lightbox-img-pane {
-            background: #1B2228;
+            background: #182026;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 22px;
             max-height: 90vh;
         }
         .lightbox-img-pane img {
@@ -573,7 +796,7 @@
             max-height: 82vh;
             object-fit: contain;
             border: 6px solid #F9F6F0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
         }
         .lightbox-info-pane {
             padding: 32px 28px;
@@ -586,8 +809,8 @@
         }
         .lightbox-badge {
             display: inline-block;
-            background: #162B38;
-            color: #D9A05B;
+            background: var(--primary-navy);
+            color: var(--accent-ochre);
             font-size: 12px;
             font-weight: 700;
             padding: 4px 12px;
@@ -597,33 +820,78 @@
         .lightbox-title {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
-            color: #162B38;
+            color: var(--primary-navy);
             margin-bottom: 6px;
         }
         .lightbox-lesson {
             font-size: 13px;
             font-weight: 700;
-            color: #C85A32;
+            color: var(--accent-terracotta);
             margin-bottom: 18px;
             padding-bottom: 14px;
             border-bottom: 1px solid rgba(22, 43, 56, 0.1);
         }
         .lightbox-story {
             font-size: 14.5px;
-            color: #22252A;
+            color: var(--text-dark);
             line-height: 1.75;
             white-space: pre-line;
         }
+
+        /* Thanh nút nổi góc dưới bên phải */
+        .floating-dock {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 900;
+        }
+        .dock-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 22px rgba(20, 39, 52, 0.24);
+            transition: all 0.22s;
+        }
+        .dock-submit {
+            background: var(--accent-terracotta);
+            color: #FFFFFF;
+        }
+        .dock-submit:hover { background: #A8431F; transform: translateY(-2px); }
+        .dock-top {
+            background: var(--primary-navy);
+            color: #FFFFFF;
+            align-self: flex-end;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            font-size: 18px;
+        }
+        .dock-top:hover { background: var(--grade-accent); transform: translateY(-2px); }
 
         footer {
             background-color: var(--primary-navy);
             color: #B8C4CC;
             text-align: center;
-            padding: 32px 20px;
+            padding: 36px 20px;
             font-size: 13px;
-            margin-top: 60px;
+            margin-top: 64px;
         }
         footer strong { color: var(--accent-ochre); }
+
+        @media (max-width: 900px) {
+            .overview-grid { grid-template-columns: 1fr; }
+        }
 
         @media (max-width: 820px) {
             .lightbox-dialog { grid-template-columns: 1fr; overflow-y: auto; }
@@ -633,16 +901,30 @@
 
         @media (max-width: 650px) {
             .nav-inner { justify-content: center; }
-            .grade-switcher a { margin: 0 4px; }
+            .grade-switcher a { padding: 6px 10px; }
+            .floating-dock { right: 14px; bottom: 14px; }
         }
     </style>
 </head>
 <body data-grade="8">
 
-    <header>
-        <div class="brand-badge">HỒNG SƠN ART · KẾT NỐI TRI THỨC VỚI CUỘC SỐNG</div>
-        <h1>HỌC LIỆU MỸ THUẬT 8</h1>
-        <p class="subtitle">Hệ thống sách điện tử, bài giảng, video hướng dẫn thực hành và phòng triển lãm sản phẩm học sinh trọn bộ 8 Chủ đề (16 Bài học)</p>
+    <header id="top">
+        <div class="header-content">
+            <div class="brand-badge">🎨 HỒNG SƠN ART · KẾT NỐI TRI THỨC VỚI CUỘC SỐNG</div>
+            <h1>STUDIO MỸ THUẬT 8</h1>
+            <p class="subtitle">Không gian học liệu điện tử, video thị phạm thực hành, phiếu học tập và phòng triển lãm sản phẩm sáng tạo của học sinh</p>
+
+            <div class="hero-stats">
+                <span class="stat-pill">📚 8 Chủ đề · 16 Bài học</span>
+                <span class="stat-pill">🖼️ Phòng tranh số trực tuyến</span>
+                <span class="stat-pill">🏫 Trường THCS Cao Bá Quát</span>
+            </div>
+
+            <div class="hero-search-wrap">
+                <input type="text" id="lesson-search-input" class="hero-search-input" placeholder="🔍 Tìm nhanh bài học, chủ đề (VD: ký họa, logo, trang phục...)">
+                <button type="button" id="lesson-search-clear" class="hero-search-clear" title="Xóa tìm kiếm">✕</button>
+            </div>
+        </div>
     </header>
 
     <nav>
@@ -658,134 +940,226 @@
     </nav>
 
     <div class="container">
-        <div class="overview-card">
-            <h2>Tài liệu nền tảng & Mục lục Mĩ thuật 8</h2>
-            <p>Truy cập nhanh Sách giáo khoa, Sách giáo viên bản điện tử hoặc chọn đúng Chủ đề và Bài học bên dưới để xem video thị phạm, phiếu học tập và phòng tranh học sinh.</p>
-            
-            <div class="textbook-bar">
-                <a href="https://drive.google.com/file/d/1IP_IIYHNAyHvLqZkDnY5jKPb9ZD-tJNA/view?usp=drivesdk" target="_blank" class="book-btn btn-sgk">📖 Sách giáo khoa Mĩ thuật 8 (KNTT)</a>
-                <a href="https://drive.google.com/file/d/1VkrTUl2H2chX8e5VWc7ZRuGkgc2e7k5D/view?usp=drivesdk" target="_blank" class="book-btn btn-sgv">📘 Sách giáo viên Mĩ thuật 8 (KNTT)</a>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div>
+                    <h2>Tài liệu nền tảng & Mục lục Mĩ thuật 8</h2>
+                    <p>Truy cập nhanh Sách giáo khoa, Sách giáo viên bản điện tử hoặc chọn đúng Chủ đề, Bài học bên dưới để xem video thị phạm, phiếu học tập và phòng tranh học sinh.</p>
+                    <div class="textbook-bar">
+                        <a href="https://drive.google.com/file/d/1IP_IIYHNAyHvLqZkDnY5jKPb9ZD-tJNA/view?usp=drivesdk" target="_blank" class="book-btn btn-sgk">📖 Sách giáo khoa Mĩ thuật 8 (KNTT)</a>
+                        <a href="https://drive.google.com/file/d/1VkrTUl2H2chX8e5VWc7ZRuGkgc2e7k5D/view?usp=drivesdk" target="_blank" class="book-btn btn-sgv">📘 Sách giáo viên Mĩ thuật 8 (KNTT)</a>
+                    </div>
+                </div>
+                <div class="semester-jump">
+                    <a href="#hoc-ky-1" class="jump-btn">↓ Học kỳ I (Chủ đề 1 – 4)</a>
+                    <a href="#hoc-ky-2" class="jump-btn">↓ Học kỳ II (Chủ đề 5 – 8)</a>
+                    <a href="#goc-trien-lam" class="jump-btn jump-btn-gallery">🎨 Góc Triển Lãm Học Sinh</a>
+                </div>
             </div>
 
-            <div class="semester-jump">
-                <a href="#hoc-ky-1" class="jump-btn">↓ Học kỳ I (Chủ đề 1 – 4)</a>
-                <a href="#hoc-ky-2" class="jump-btn">↓ Học kỳ II (Chủ đề 5 – 8)</a>
-                <a href="#goc-trien-lam" class="jump-btn jump-btn-gallery">🎨 Góc Triển Lãm Học Sinh</a>
+            <div class="palette-studio-card">
+                <div class="palette-studio-header">
+                    <h3>🎨 Gợi ý hòa sắc sáng tạo</h3>
+                    <span class="copy-toast" id="copy-toast">Đã chép mã màu!</span>
+                </div>
+                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Nhấn vào ô màu bất kỳ để sao chép mã HEX phục vụ thiết kế đồ họa & vẽ tranh:</p>
+                <div class="palette-list">
+
+            <div class="palette-item">
+                <div class="palette-swatches"><button type="button" class="swatch-dot" style="background:#8C3B2B;" data-hex="#8C3B2B" title="Nhấn để sao chép mã màu #8C3B2B"></button><button type="button" class="swatch-dot" style="background:#D9A05B;" data-hex="#D9A05B" title="Nhấn để sao chép mã màu #D9A05B"></button><button type="button" class="swatch-dot" style="background:#2B3A42;" data-hex="#2B3A42" title="Nhấn để sao chép mã màu #2B3A42"></button><button type="button" class="swatch-dot" style="background:#E6D5B8;" data-hex="#E6D5B8" title="Nhấn để sao chép mã màu #E6D5B8"></button><button type="button" class="swatch-dot" style="background:#4A6B5D;" data-hex="#4A6B5D" title="Nhấn để sao chép mã màu #4A6B5D"></button></div>
+                <div class="palette-meta">
+                    <strong>Hòa sắc Tây Nguyên</strong>
+                    <span>Trầm ấm, đậm bản sắc đại ngàn</span>
+                </div>
             </div>
+        
+
+            <div class="palette-item">
+                <div class="palette-swatches"><button type="button" class="swatch-dot" style="background:#1D3557;" data-hex="#1D3557" title="Nhấn để sao chép mã màu #1D3557"></button><button type="button" class="swatch-dot" style="background:#457B9D;" data-hex="#457B9D" title="Nhấn để sao chép mã màu #457B9D"></button><button type="button" class="swatch-dot" style="background:#E63946;" data-hex="#E63946" title="Nhấn để sao chép mã màu #E63946"></button><button type="button" class="swatch-dot" style="background:#F4A261;" data-hex="#F4A261" title="Nhấn để sao chép mã màu #F4A261"></button><button type="button" class="swatch-dot" style="background:#F1FAEE;" data-hex="#F1FAEE" title="Nhấn để sao chép mã màu #F1FAEE"></button></div>
+                <div class="palette-meta">
+                    <strong>Tương phản Nóng – Lạnh</strong>
+                    <span>Nổi bật thị giác, giàu nhịp điệu</span>
+                </div>
+            </div>
+        
+
+            <div class="palette-item">
+                <div class="palette-swatches"><button type="button" class="swatch-dot" style="background:#B53324;" data-hex="#B53324" title="Nhấn để sao chép mã màu #B53324"></button><button type="button" class="swatch-dot" style="background:#E8B931;" data-hex="#E8B931" title="Nhấn để sao chép mã màu #E8B931"></button><button type="button" class="swatch-dot" style="background:#2F5233;" data-hex="#2F5233" title="Nhấn để sao chép mã màu #2F5233"></button><button type="button" class="swatch-dot" style="background:#F4EFE6;" data-hex="#F4EFE6" title="Nhấn để sao chép mã màu #F4EFE6"></button><button type="button" class="swatch-dot" style="background:#1C1C1C;" data-hex="#1C1C1C" title="Nhấn để sao chép mã màu #1C1C1C"></button></div>
+                <div class="palette-meta">
+                    <strong>Dân gian Đông Hồ</strong>
+                    <span>Mộc mạc, rực rỡ sắc màu lễ hội</span>
+                </div>
+            </div>
+        
+
+            <div class="palette-item">
+                <div class="palette-swatches"><button type="button" class="swatch-dot" style="background:#2B2D42;" data-hex="#2B2D42" title="Nhấn để sao chép mã màu #2B2D42"></button><button type="button" class="swatch-dot" style="background:#8D99AE;" data-hex="#8D99AE" title="Nhấn để sao chép mã màu #8D99AE"></button><button type="button" class="swatch-dot" style="background:#EDF2F4;" data-hex="#EDF2F4" title="Nhấn để sao chép mã màu #EDF2F4"></button><button type="button" class="swatch-dot" style="background:#EF233C;" data-hex="#EF233C" title="Nhấn để sao chép mã màu #EF233C"></button><button type="button" class="swatch-dot" style="background:#D90429;" data-hex="#D90429" title="Nhấn để sao chép mã màu #D90429"></button></div>
+                <div class="palette-meta">
+                    <strong>Thanh lịch Đương đại</strong>
+                    <span>Hiện đại, tối giản, giàu điểm nhấn</span>
+                </div>
+            </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <div id="search-empty-notice" class="lesson-card" style="display:none; text-align:center; padding:32px; margin-bottom:30px;">
+            <p style="color: var(--text-muted); font-size: 15px;">Không tìm thấy bài học nào khớp với từ khóa của em. Hãy thử từ khóa khác nhé!</p>
         </div>
 
         <!-- ==================== HỌC KỲ I ==================== -->
         <div class="semester-divider" id="hoc-ky-1">
             HỌC KỲ I <span>Chủ đề 1 – Chủ đề 4</span>
         </div>
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 1</span> Nghệ thuật hiện đại thế giới</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 1</div>
-                        <h3>Một số trường phái mỹ thuật hiện đại thế giới</h3>
-                        <p class="lesson-desc">Tìm hiểu đặc trưng tạo hình của trường phái Ấn tượng, Lập thể, Biểu hiện và Dã thú.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C86D51"/></linearGradient></defs><rect width="400" height="72" fill="url(#g0)"/><circle cx="340" cy="18" r="46" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="375" cy="58" r="32" fill="#D9A05B" fill-opacity="0.28"/><path d="M0 54 Q 110 22, 220 48 T 400 32 L 400 72 L 0 72 Z" fill="#FFFFFF" fill-opacity="0.14"/></svg>
+                        <span class="lesson-pill-tag">Bài 1</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Một số trường phái mỹ thuật hiện đại thế giới</h3>
+                            <p class="lesson-desc">Tìm hiểu đặc trưng tạo hình của trường phái Ấn tượng, Lập thể, Biểu hiện và Dã thú.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">🖼️ Tư liệu tác phẩm</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 2</div>
-                        <h3>Sáng tạo tranh theo phong cách mỹ thuật hiện đại</h3>
-                        <p class="lesson-desc">Vận dụng bút pháp, mảng màu của mỹ thuật hiện đại để thể hiện đề tài tự chọn.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C86D51"/></linearGradient></defs><rect width="400" height="72" fill="url(#g0)"/><circle cx="340" cy="18" r="46" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="375" cy="58" r="32" fill="#D9A05B" fill-opacity="0.28"/><path d="M0 54 Q 110 22, 220 48 T 400 32 L 400 72 L 0 72 Z" fill="#FFFFFF" fill-opacity="0.14"/></svg>
+                        <span class="lesson-pill-tag">Bài 2</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Sáng tạo tranh theo phong cách mỹ thuật hiện đại</h3>
+                            <p class="lesson-desc">Vận dụng bút pháp, mảng màu của mỹ thuật hiện đại để thể hiện đề tài tự chọn.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Video thị phạm</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 2</span> Nghệ thuật hiện đại Việt Nam</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 3</div>
-                        <h3>Một số tác giả, tác phẩm tiêu biểu của mỹ thuật hiện đại Việt Nam</h3>
-                        <p class="lesson-desc">Khám phá giá trị nghệ thuật tranh lụa, sơn mài, sơn dầu của các danh họa Việt Nam.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#162B38"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g1)"/><polygon points="270,72 325,14 380,72" fill="#D9A05B" fill-opacity="0.3"/><rect x="335" y="18" width="44" height="44" rx="6" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="65" cy="16" r="38" fill="#FFFFFF" fill-opacity="0.07"/></svg>
+                        <span class="lesson-pill-tag">Bài 3</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Một số tác giả, tác phẩm tiêu biểu của mỹ thuật hiện đại Việt Nam</h3>
+                            <p class="lesson-desc">Khám phá giá trị nghệ thuật tranh lụa, sơn mài, sơn dầu của các danh họa Việt Nam.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">🖼️ Kho tư liệu</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 4</div>
-                        <h3>Thiết kế trang phục với họa tiết dân tộc</h3>
-                        <p class="lesson-desc">Khai thác hoa văn thổ cẩm, họa tiết truyền thống thiết kế trang phục ứng dụng đương đại.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#162B38"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g1)"/><polygon points="270,72 325,14 380,72" fill="#D9A05B" fill-opacity="0.3"/><rect x="335" y="18" width="44" height="44" rx="6" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="65" cy="16" r="38" fill="#FFFFFF" fill-opacity="0.07"/></svg>
+                        <span class="lesson-pill-tag">Bài 4</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Thiết kế trang phục với họa tiết dân tộc</h3>
+                            <p class="lesson-desc">Khai thác hoa văn thổ cẩm, họa tiết truyền thống thiết kế trang phục ứng dụng đương đại.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Gợi ý thiết kế</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">📄 Phiếu học tập</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 3</span> Vẻ đẹp trong cuộc sống</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 5</div>
-                        <h3>Tạo hình nhân vật biểu cảm</h3>
-                        <p class="lesson-desc">Khai thác hình khối, đường nét và tỷ lệ cách điệu để diễn tả tính cách, cảm xúc nhân vật.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C85A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g2)"/><path d="M-20 65 C 80 10, 180 80, 290 20 C 340 -5, 380 35, 420 15 L 420 72 L -20 72 Z" fill="#FFFFFF" fill-opacity="0.15"/><circle cx="320" cy="36" r="18" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3" fill="none"/></svg>
+                        <span class="lesson-pill-tag">Bài 5</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Tạo hình nhân vật biểu cảm</h3>
+                            <p class="lesson-desc">Khai thác hình khối, đường nét và tỷ lệ cách điệu để diễn tả tính cách, cảm xúc nhân vật.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Kỹ thuật tạo hình</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 6</div>
-                        <h3>Tranh tĩnh vật màu</h3>
-                        <p class="lesson-desc">Quan sát cấu trúc mẫu vật, ánh sáng và hòa sắc trong sáng tác tranh tĩnh vật.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C85A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g2)"/><path d="M-20 65 C 80 10, 180 80, 290 20 C 340 -5, 380 35, 420 15 L 420 72 L -20 72 Z" fill="#FFFFFF" fill-opacity="0.15"/><circle cx="320" cy="36" r="18" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3" fill="none"/></svg>
+                        <span class="lesson-pill-tag">Bài 6</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Tranh tĩnh vật màu</h3>
+                            <p class="lesson-desc">Quan sát cấu trúc mẫu vật, ánh sáng và hòa sắc trong sáng tác tranh tĩnh vật.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">📄 Mẫu bố cục</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 4</span> Nghệ thuật đồ họa</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 7</div>
-                        <h3>Tranh khắc gỗ</h3>
-                        <p class="lesson-desc">Tìm hiểu quy trình khắc bản in nổi trên gỗ/xốp và kỹ thuật in tranh đen trắng hoặc màu.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2B1E1A"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g3)"/><circle cx="330" cy="36" r="52" stroke="#D9A05B" stroke-opacity="0.35" stroke-width="2" fill="none"/><circle cx="330" cy="36" r="32" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2" fill="none"/><rect x="24" y="16" width="80" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.08"/></svg>
+                        <span class="lesson-pill-tag">Bài 7</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Tranh khắc gỗ</h3>
+                            <p class="lesson-desc">Tìm hiểu quy trình khắc bản in nổi trên gỗ/xốp và kỹ thuật in tranh đen trắng hoặc màu.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Kỹ thuật khắc in</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 8</div>
-                        <h3>Thiết kế áp phích tuyên truyền</h3>
-                        <p class="lesson-desc">Kết hợp hình ảnh cô đọng, tương phản mạnh và khẩu hiệu ngắn gọn truyền tải thông điệp.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2B1E1A"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g3)"/><circle cx="330" cy="36" r="52" stroke="#D9A05B" stroke-opacity="0.35" stroke-width="2" fill="none"/><circle cx="330" cy="36" r="32" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2" fill="none"/><rect x="24" y="16" width="80" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.08"/></svg>
+                        <span class="lesson-pill-tag">Bài 8</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Thiết kế áp phích tuyên truyền</h3>
+                            <p class="lesson-desc">Kết hợp hình ảnh cô đọng, tương phản mạnh và khẩu hiệu ngắn gọn truyền tải thông điệp.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">📐 Mẫu áp phích</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -795,85 +1169,115 @@
         <div class="semester-divider" id="hoc-ky-2">
             HỌC KỲ II <span>Chủ đề 5 – Chủ đề 8</span>
         </div>
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 5</span> Thiết kế công nghiệp</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 9</div>
-                        <h3>Thiết kế sản phẩm công nghiệp</h3>
-                        <p class="lesson-desc">Tìm hiểu mối liên hệ giữa công năng sử dụng và hình thức thẩm mỹ của đồ vật.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C86D51"/></linearGradient></defs><rect width="400" height="72" fill="url(#g0)"/><circle cx="340" cy="18" r="46" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="375" cy="58" r="32" fill="#D9A05B" fill-opacity="0.28"/><path d="M0 54 Q 110 22, 220 48 T 400 32 L 400 72 L 0 72 Z" fill="#FFFFFF" fill-opacity="0.14"/></svg>
+                        <span class="lesson-pill-tag">Bài 9</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Thiết kế sản phẩm công nghiệp</h3>
+                            <p class="lesson-desc">Tìm hiểu mối liên hệ giữa công năng sử dụng và hình thức thẩm mỹ của đồ vật.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">🖼️ Tư liệu thiết kế</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 10</div>
-                        <h3>Tạo dáng và trang trí sản phẩm công nghiệp</h3>
-                        <p class="lesson-desc">Phác thảo bản vẽ và tạo mẫu sản phẩm tiện ích thân thiện với môi trường.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C86D51"/></linearGradient></defs><rect width="400" height="72" fill="url(#g0)"/><circle cx="340" cy="18" r="46" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="375" cy="58" r="32" fill="#D9A05B" fill-opacity="0.28"/><path d="M0 54 Q 110 22, 220 48 T 400 32 L 400 72 L 0 72 Z" fill="#FFFFFF" fill-opacity="0.14"/></svg>
+                        <span class="lesson-pill-tag">Bài 10</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Tạo dáng và trang trí sản phẩm công nghiệp</h3>
+                            <p class="lesson-desc">Phác thảo bản vẽ và tạo mẫu sản phẩm tiện ích thân thiện với môi trường.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 6</span> Không gian và kiến trúc</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 11</div>
-                        <h3>Thiết kế không gian nội thất</h3>
-                        <p class="lesson-desc">Bố trí đồ đạc, ánh sáng và màu sắc hài hòa trong không gian phòng học hoặc phòng ở.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#162B38"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g1)"/><polygon points="270,72 325,14 380,72" fill="#D9A05B" fill-opacity="0.3"/><rect x="335" y="18" width="44" height="44" rx="6" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="65" cy="16" r="38" fill="#FFFFFF" fill-opacity="0.07"/></svg>
+                        <span class="lesson-pill-tag">Bài 11</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Thiết kế không gian nội thất</h3>
+                            <p class="lesson-desc">Bố trí đồ đạc, ánh sáng và màu sắc hài hòa trong không gian phòng học hoặc phòng ở.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">📐 Sơ đồ mặt bằng</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Bài 12</div>
-                        <h3>Tạo hình mô hình không gian</h3>
-                        <p class="lesson-desc">Xây dựng mô hình kiến trúc nội – ngoại thất thu nhỏ từ vật liệu tái chế.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#162B38"/><stop offset="100%" stop-color="#8C4A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g1)"/><polygon points="270,72 325,14 380,72" fill="#D9A05B" fill-opacity="0.3"/><rect x="335" y="18" width="44" height="44" rx="6" fill="#FFFFFF" fill-opacity="0.12"/><circle cx="65" cy="16" r="38" fill="#FFFFFF" fill-opacity="0.07"/></svg>
+                        <span class="lesson-pill-tag">Bài 12</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Tạo hình mô hình không gian</h3>
+                            <p class="lesson-desc">Xây dựng mô hình kiến trúc nội – ngoại thất thu nhỏ từ vật liệu tái chế.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Video làm mô hình</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="topic-group">
+        <div class="topic-group" data-searchable="true">
             <h2 class="topic-title"><span class="topic-badge">CHỦ ĐỀ 7 – 8</span> Nghệ thuật đương đại & Hướng nghiệp</h2>
             <div class="lesson-grid">
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Chủ đề 7 · Bài 13 – 14</div>
-                        <h3>Nghệ thuật sắp đặt & Trình diễn</h3>
-                        <p class="lesson-desc">Tìm hiểu hình thức nghệ thuật đương đại kết hợp không gian, ánh sáng và vật thể.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C85A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g2)"/><path d="M-20 65 C 80 10, 180 80, 290 20 C 340 -5, 380 35, 420 15 L 420 72 L -20 72 Z" fill="#FFFFFF" fill-opacity="0.15"/><circle cx="320" cy="36" r="18" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3" fill="none"/></svg>
+                        <span class="lesson-pill-tag">Chủ đề 7 · Bài 13 – 14</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Nghệ thuật sắp đặt & Trình diễn</h3>
+                            <p class="lesson-desc">Tìm hiểu hình thức nghệ thuật đương đại kết hợp không gian, ánh sáng và vật thể.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="#" class="res-btn btn-video">🎬 Video tham khảo</a>
+                        </div>
                     </div>
                 </div>
                 <div class="lesson-card">
-                    <div>
-                        <div class="lesson-num">Chủ đề 8 · Bài 15 – 16</div>
-                        <h3>Mỹ thuật với đời sống & Nghề nghiệp mỹ thuật</h3>
-                        <p class="lesson-desc">Khám phá các ngành nghề thuộc lĩnh vực mỹ thuật tạo hình và mỹ thuật ứng dụng.</p>
+                    <div class="lesson-art-banner">
+                        <svg viewBox="0 0 400 72" preserveAspectRatio="none"><defs><linearGradient id="g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#8C4A32"/><stop offset="100%" stop-color="#C85A32"/></linearGradient></defs><rect width="400" height="72" fill="url(#g2)"/><path d="M-20 65 C 80 10, 180 80, 290 20 C 340 -5, 380 35, 420 15 L 420 72 L -20 72 Z" fill="#FFFFFF" fill-opacity="0.15"/><circle cx="320" cy="36" r="18" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3" fill="none"/></svg>
+                        <span class="lesson-pill-tag">Chủ đề 8 · Bài 15 – 16</span>
                     </div>
-                    <div class="resource-links">
+                    <div class="lesson-card-body">
+                        <div>
+                            <h3>Mỹ thuật với đời sống & Nghề nghiệp mỹ thuật</h3>
+                            <p class="lesson-desc">Khám phá các ngành nghề thuộc lĩnh vực mỹ thuật tạo hình và mỹ thuật ứng dụng.</p>
+                        </div>
+                        <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
                         <a href="My-thuat-8/" class="res-btn btn-doc">📄 Cẩm nang nghề nghiệp</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -886,7 +1290,7 @@
                 Kho bài giảng & Học liệu bổ sung (Tự động từ Google Sheets)
             </h2>
             <div id="sheet-cards-container" class="lesson-grid">
-                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--text-muted);">
                     Đang tải học liệu mới nhất từ hệ thống...
                 </div>
             </div>
@@ -915,11 +1319,17 @@
             </div>
 
             <div id="student-gallery-container" class="gallery-grid">
-                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 28px; color: var(--text-muted);">
                     Đang tải các tác phẩm đã duyệt từ phòng trưng bày...
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- THANH NÚT NỔI GÓC DƯỚI MÀN HÌNH -->
+    <div class="floating-dock">
+        <a href="https://forms.gle/6RQduNzTrL7FHTKK6" target="_blank" class="dock-btn dock-submit" title="Gửi ảnh chụp bài vẽ của em lên phòng tranh">📤 Nộp bài vẽ</a>
+        <a href="#top" class="dock-btn dock-top" title="Lên đầu trang">↑</a>
     </div>
 
     <!-- HỘP ĐÈN LIGHTBOX PHÓNG TO TRANH TOÀN MÀN HÌNH -->
@@ -950,13 +1360,58 @@
             const SPREADSHEET_ID = "1LIFdjnspgzZ44eYbs4-EIFmJhFkyFu01tP2qpckBUuA";
             const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
 
-            // Chặn nhảy đầu trang với nút chưa có link (#)
+            // 0. XỬ LÝ TÌM KIẾM BÀI HỌC NHANH & SAO CHÉP MÃ MÀU
+            const searchInput = document.getElementById("lesson-search-input");
+            const searchClear = document.getElementById("lesson-search-clear");
+            const emptyNotice = document.getElementById("search-empty-notice");
+
+            function filterLessons() {
+                const q = searchInput.value.trim().toLowerCase();
+                searchClear.style.display = q ? "flex" : "none";
+                let visibleCount = 0;
+
+                document.querySelectorAll(".topic-group[data-searchable='true']").forEach(group => {
+                    let groupMatches = 0;
+                    group.querySelectorAll(".lesson-card").forEach(card => {
+                        const text = card.innerText.toLowerCase();
+                        const match = !q || text.includes(q);
+                        card.style.display = match ? "flex" : "none";
+                        if (match) { groupMatches++; visibleCount++; }
+                    });
+                    group.style.display = groupMatches > 0 ? "block" : "none";
+                });
+
+                emptyNotice.style.display = (q && visibleCount === 0) ? "block" : "none";
+            }
+
+            searchInput.addEventListener("input", filterLessons);
+            searchClear.addEventListener("click", () => {
+                searchInput.value = "";
+                filterLessons();
+                searchInput.focus();
+            });
+
+            // Sao chép mã màu HEX
+            const copyToast = document.getElementById("copy-toast");
+            document.querySelectorAll(".swatch-dot").forEach(dot => {
+                dot.addEventListener("click", () => {
+                    const hex = dot.getAttribute("data-hex");
+                    if (navigator.clipboard) navigator.clipboard.writeText(hex);
+                    copyToast.textContent = "Đã chép " + hex;
+                    copyToast.classList.add("show");
+                    setTimeout(() => copyToast.classList.remove("show"), 1800);
+                });
+            });
+
+            // Đánh dấu rõ học liệu đang biên soạn (href="#")
             document.querySelectorAll('a.res-btn[href="#"]').forEach(btn => {
-                btn.title = "Học liệu đang được thầy Đỗ Hồng Sơn cập nhật";
+                btn.classList.add("is-pending");
+                btn.title = "Học liệu đang được thầy Đỗ Hồng Sơn biên soạn và cập nhật";
+                btn.innerHTML = btn.innerHTML + ' <span style="font-size:10px;opacity:0.85;">(Sắp có)</span>';
                 btn.addEventListener("click", e => e.preventDefault());
             });
 
-            // 1. TẢI KHO HỌC LIỆU BỔ SUNG
+            // 1. TẢI KHO HỌC LIỆU BỔ SUNG TỪ GOOGLE SHEETS
             function parseCSV(text) {
                 const rows = [];
                 let row = [], val = "", inQuotes = false;
@@ -984,19 +1439,21 @@
                     const gradeItems = rows.filter(r => r.length >= 6 && r[0].includes(currentGrade) && r[3] && r[5]);
 
                     if (gradeItems.length === 0) {
-                        container.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Chưa có học liệu bổ sung nào cho Lớp ${currentGrade} trên bảng tính.</div>`;
+                        container.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--text-muted);">Chưa có học liệu bổ sung nào cho Lớp ${currentGrade} trên bảng tính.</div>`;
                         return;
                     }
 
                     container.innerHTML = gradeItems.map(item => `
                         <div class="lesson-card">
-                            <div>
-                                <div class="lesson-num">${item[1] ? item[1] + " · " : ""}${item[4] || "Học liệu"}</div>
-                                <h3>${item[3]}</h3>
-                                <p class="lesson-desc">${item[2] || "Tài liệu học tập trực tuyến môn Mỹ thuật"}</p>
-                            </div>
-                            <div class="resource-links">
-                                <a href="${item[5]}" target="_blank" class="res-btn btn-slide">📂 Mở học liệu ↗</a>
+                            <div class="lesson-card-body">
+                                <div>
+                                    <div style="font-size:11.5px;font-weight:700;color:var(--grade-accent);text-transform:uppercase;margin-bottom:6px;">${item[1] ? item[1] + " · " : ""}${item[4] || "Học liệu"}</div>
+                                    <h3>${item[3]}</h3>
+                                    <p class="lesson-desc">${item[2] || "Tài liệu học tập trực tuyến môn Mỹ thuật"}</p>
+                                </div>
+                                <div class="resource-links">
+                                    <a href="${item[5]}" target="_blank" class="res-btn btn-slide">📂 Mở học liệu ↗</a>
+                                </div>
                             </div>
                         </div>
                     `).join("");
@@ -1048,7 +1505,7 @@
                     : allGradeWorks.filter(w => w.className.toUpperCase() === filterClass.toUpperCase());
 
                 if (list.length === 0) {
-                    galleryContainer.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Chưa có bài vẽ nào của Khối ${currentGrade} được duyệt hiển thị. Các em hãy nhấn nút <strong>"📤 Nộp bài vẽ lên Góc triển lãm"</strong> phía trên để gửi tác phẩm nhé!</div>`;
+                    galleryContainer.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 28px; color: var(--text-muted);">Chưa có bài vẽ nào của Khối ${currentGrade} được duyệt hiển thị. Các em hãy nhấn nút <strong>"📤 Nộp bài vẽ lên Góc triển lãm"</strong> phía trên để gửi tác phẩm nhé!</div>`;
                     return;
                 }
 
@@ -1130,13 +1587,13 @@
                     renderWorks("ALL");
                 })
                 .catch(() => {
-                    document.getElementById("student-gallery-container").innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--accent-terracotta);">Không thể kết nối dữ liệu phòng tranh. Anh Sơn vui lòng kiểm tra lại kết nối mạng hoặc tab <strong>Form_Responses</strong>.</div>`;
+                    document.getElementById("student-gallery-container").innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 28px; color: var(--accent-terracotta);">Không thể kết nối dữ liệu phòng tranh. Anh Sơn vui lòng kiểm tra lại kết nối mạng hoặc tab <strong>Form_Responses</strong>.</div>`;
                 });
         })();
     </script>
 
     <footer>
-        <p><strong>HỒNG SƠN ART</strong> · Kênh học liệu điện tử môn Mỹ thuật THCS</p>
+        <p><strong>HỒNG SƠN ART</strong> · Studio Học liệu & Triển lãm Mỹ thuật THCS</p>
         <p style="margin-top: 6px;">Giáo viên thực hiện: Đỗ Hồng Sơn · Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai</p>
     </footer>
 
