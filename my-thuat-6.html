@@ -1,426 +1,142 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Học liệu Mĩ thuật 6 | Hồng Sơn ART</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f6f9;
-  color:#263238;
-  line-height:1.6
-}
-header{
-  background:linear-gradient(120deg,#173b68,#287c9b);
-  color:white;
-  text-align:center;
-  padding:42px 18px
-}
-header h1{margin:0;font-size:30px}
-header p{margin:8px 0}
-nav{
-  background:#102e50;
-  padding:12px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:10
-}
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:6px 12px;
-  display:inline-block;
-  font-weight:bold
-}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:24px 16px
-}
-.intro{
-  background:white;
-  padding:22px;
-  border-radius:12px;
-  margin-bottom:24px
-}
-h2{color:#174c75}
-.topic{
-  background:white;
-  border-radius:12px;
-  padding:20px;
-  margin:22px 0;
-  box-shadow:0 3px 12px rgba(0,0,0,.06)
-}
-.topic h2{margin-top:0}
-.lesson-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px
-}
-.lesson{
-  border:1px solid #dce4eb;
-  border-radius:10px;
-  padding:16px;
-  background:#fbfdff
-}
-.lesson h3{
-  color:#174c75;
-  font-size:17px;
-  margin-top:0
-}
-.lesson p{font-size:14px}
-.resources{
-  border-top:1px solid #e1e7ed;
-  margin-top:12px;
-  padding-top:10px;
-  font-size:13px
-}
-.pending{
-  display:inline-block;
-  background:#edf1f5;
-  color:#596b7a;
-  border-radius:5px;
-  padding:4px 8px;
-  margin:3px 2px;
-  font-size:12px
-}
-.search{
-  width:100%;
-  padding:13px;
-  border:1px solid #b8c7d5;
-  border-radius:8px;
-  font-size:16px;
-  margin:10px 0 20px
-}
-.back{
-  display:inline-block;
-  background:#174c75;
-  color:white;
-  padding:10px 18px;
-  border-radius:7px;
-  text-decoration:none
-}
-footer{
-  background:#102e50;
-  color:white;
-  text-align:center;
-  padding:22px;
-  margin-top:35px
-}
-.hidden{display:none}
-@media(max-width:600px){
-  header h1{font-size:23px}
-  nav a{margin:5px}
-}
-</style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mỹ thuật 6 - Học liệu Mỹ thuật THCS | Hồng Sơn Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #F9F6F0;
+            --primary-navy: #162B38;
+            --accent-terracotta: #C85A32;
+            --accent-ochre: #D9A05B;
+            --grade6-accent: #E07A5F;
+            --text-dark: #22252A;
+            --text-muted: #5A626A;
+            --card-bg: #FFFFFF;
+        }
 
-<body>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<header>
-  <h1>HỒNG SƠN ART</h1>
-  <h2 style="color:white">THƯ VIỆN HỌC LIỆU MĨ THUẬT 6</h2>
-  <p>Bộ sách Kết nối tri thức với cuộc sống</p>
-  <p>Trường THCS Cao Bá Quát – Chư Sê – Gia Lai</p>
-</header>
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.65;
+            background-image: radial-gradient(#dcd6c8 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
 
-<nav>
-  <a href="index.html">Trang chủ</a>
-  <a href="#gioithieu">Giới thiệu</a>
-  <a href="#chuongtrinh">8 chủ đề</a>
-  <a href="#huongdan">Hướng dẫn</a>
-</nav>
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, #162B38 0%, #1F3C4D 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 45px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
 
-<main class="container">
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #E07A5F, #F2CC8F);
+        }
 
-<section class="intro" id="gioithieu">
-  <h2>Chào mừng các em đến với học liệu Mĩ thuật 6!</h2>
-  <p>
-    Website hỗ trợ giáo viên và học sinh tìm hiểu kiến thức,
-    khám phá nghệ thuật, thực hành sáng tạo và chia sẻ sản phẩm
-    theo chương trình Mĩ thuật 6 – bộ sách Kết nối tri thức với cuộc sống.
-  </p>
-  <p><strong>Cấu trúc chương trình:</strong> 8 chủ đề – 16 bài học.</p>
-  <a class="back" href="index.html">← Quay về trang chủ</a>
-</section>
+        .brand-badge {
+            display: inline-block;
+            color: var(--accent-ochre);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
 
-<section id="chuongtrinh">
-  <h2>HỆ THỐNG 8 CHỦ ĐỀ HỌC TẬP</h2>
-  <input
-    class="search"
-    type="text"
-    id="searchInput"
-    placeholder="Tìm kiếm tên chủ đề hoặc bài học..."
-    onkeyup="searchLessons()"
-  >
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4.5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 1. XÂY DỰNG Ý TƯỞNG TRONG SÁNG TÁC MĨ THUẬT</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 1. Một số thể loại mĩ thuật</h3>
-        <p>Khám phá các thể loại mĩ thuật và nhận biết đặc điểm của từng thể loại.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 2. Xây dựng ý tưởng trong sáng tác theo chủ đề</h3>
-        <p>Tìm kiếm ý tưởng, lựa chọn nội dung và phát triển ý tưởng sáng tác mĩ thuật.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        header .subtitle {
+            font-size: 14px;
+            color: #E2D9C8;
+            max-width: 650px;
+            margin: 0 auto;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 2. NGÔI NHÀ YÊU THƯƠNG</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 3. Tạo hình ngôi nhà</h3>
-        <p>Khám phá hình dáng, cấu trúc và cách tạo hình ngôi nhà bằng các vật liệu phù hợp.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 4. Thiết kế quà lưu niệm</h3>
-        <p>Vận dụng ngôn ngữ tạo hình để thiết kế sản phẩm quà lưu niệm.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        /* --- THANH ĐIỀU HƯỚNG --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(22, 43, 56, 0.08);
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 3. HOẠT ĐỘNG TRONG TRƯỜNG HỌC</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 5. Tạo hình hoạt động trong nhà trường</h3>
-        <p>Khai thác hình ảnh hoạt động học tập, vui chơi và sinh hoạt trong nhà trường để sáng tạo sản phẩm.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 6. Thiết kế đồ chơi</h3>
-        <p>Vận dụng kiến thức tạo hình để thiết kế đồ chơi từ vật liệu phù hợp.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 4. MĨ THUẬT THỜI KÌ TIỀN SỬ</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 7. Mĩ thuật thế giới thời kì tiền sử</h3>
-        <p>Tìm hiểu một số hình thức và di sản mĩ thuật tiêu biểu của thế giới thời kì tiền sử.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 8. Mĩ thuật Việt Nam thời kì tiền sử</h3>
-        <p>Khám phá dấu tích và giá trị tạo hình của mĩ thuật Việt Nam thời kì tiền sử.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-terracotta);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: rgba(200, 90, 50, 0.08);
+            transition: all 0.2s;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 5. TRÒ CHƠI DÂN GIAN</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 9. Sáng tạo mĩ thuật với trò chơi dân gian</h3>
-        <p>Khai thác hình ảnh, hoạt động và nét đẹp văn hóa của trò chơi dân gian trong sáng tạo mĩ thuật.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 10. Thiết kế thiệp chúc mừng</h3>
-        <p>Vận dụng hình ảnh và yếu tố tạo hình để thiết kế thiệp chúc mừng.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        .back-home:hover {
+            background: var(--accent-terracotta);
+            color: #FFFFFF;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 6. SẮC MÀU LỄ HỘI</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 11. Hòa sắc trong tranh chủ đề lễ hội</h3>
-        <p>Tìm hiểu và vận dụng cách phối hợp màu sắc để tạo hòa sắc trong tranh chủ đề lễ hội.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 12. Màu sắc lễ hội trong thiết kế lịch treo tường</h3>
-        <p>Vận dụng màu sắc đặc trưng của lễ hội trong thiết kế lịch treo tường.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        .grade-switcher a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            margin-left: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 7. CUỘC SỐNG THƯỜNG NGÀY</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 13. Sáng tạo mĩ thuật với hình ảnh trong cuộc sống</h3>
-        <p>Khai thác hình ảnh quen thuộc trong cuộc sống để sáng tạo sản phẩm mĩ thuật.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 14. Thiết kế thời gian biểu</h3>
-        <p>Sử dụng hình ảnh, biểu tượng và màu sắc để thiết kế thời gian biểu cá nhân.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        .grade-switcher a.active {
+            background-color: var(--primary-navy);
+            color: #FFFFFF;
+        }
 
-  <section class="topic">
-    <h2>CHỦ ĐỀ 8. MĨ THUẬT THỜI KÌ CỔ ĐẠI</h2>
-    <div class="lesson-grid">
-      <article class="lesson">
-        <h3>Bài 15. Mĩ thuật thế giới thời kì cổ đại</h3>
-        <p>Tìm hiểu một số di sản mĩ thuật tiêu biểu của thế giới thời kì cổ đại.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-      <article class="lesson">
-        <h3>Bài 16. Mĩ thuật Việt Nam thời kì cổ đại</h3>
-        <p>Khám phá một số di sản và giá trị tạo hình của mĩ thuật Việt Nam thời kì cổ đại.</p>
-        <div class="resources">
-          <strong>Học liệu:</strong><br>
-          <span class="pending">Giáo án – Chưa cập nhật</span>
-          <span class="pending">PowerPoint – Chưa cập nhật</span>
-          <span class="pending">Hình ảnh – Chưa cập nhật</span>
-          <span class="pending">Phiếu học tập – Chưa cập nhật</span>
-        </div>
-      </article>
-    </div>
-  </section>
-</section>
+        .grade-switcher a:hover:not(.active) {
+            color: var(--accent-terracotta);
+        }
 
-<section class="intro" id="huongdan">
-  <h2>HƯỚNG DẪN SỬ DỤNG HỌC LIỆU</h2>
-  <ul>
-    <li>Chọn chủ đề và bài học cần tìm hiểu.</li>
-    <li>Tra cứu giáo án, bài trình chiếu và tài liệu hướng dẫn.</li>
-    <li>Quan sát hình ảnh, video minh họa và quy trình thực hành.</li>
-    <li>Thực hành sáng tạo, trưng bày và chia sẻ sản phẩm.</li>
-  </ul>
-  <p><strong>Lưu ý:</strong> Các mục học liệu hiện đang chờ bổ sung tài liệu thực tế.</p>
-</section>
-
-</main>
-
-<footer>
-  <p><strong>HỒNG SƠN ART – HỌC LIỆU MĨ THUẬT THCS</strong></p>
-  <p>Trường THCS Cao Bá Quát – Chư Sê – Gia Lai</p>
-  <p>Chia sẻ tri thức – Khơi nguồn sáng tạo – Phát triển năng lực mĩ thuật</p>
-</footer>
-
-<script>
-function searchLessons(){
-  const keyword=document.getElementById("searchInput").value
-    .toLowerCase().trim();
-
-  document.querySelectorAll(".topic").forEach(topic=>{
-    let found=false;
-
-    topic.querySelectorAll(".lesson").forEach(lesson=>{
-      const match=lesson.innerText.toLowerCase().includes(keyword);
-      lesson.classList.toggle("hidden",!match);
-      if(match) found=true;
-    });
-
-    topic.classList.toggle("hidden",!found);
-  });
-}
-</script>
-
-</body>
-</html>
+        /* ---
