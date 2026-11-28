@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Học Liệu Tự Động - Mỹ thuật THCS | Hồng Sơn Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #F9F6F0;
+            --primary-navy: #162B38;
+            --accent-terracotta: #C85A32;
+            --accent-ochre: #D9A05B;
+            --text-dark: #22252A;
+            --text-muted: #5A626A;
+            --card-bg: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.65;
+            background-image: radial-gradient(#dcd6c8 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, #162B38 0%, #1F3C4D 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 48px 20px 42px;
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 6px;
+            background: linear-gradient(90deg, #E07A5F, #2A9D8F, #D9A05B);
+        }
+
+        .brand-badge {
+            display: inline-block;
+            color: var(--accent-ochre);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4.5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header .subtitle {
+            font-size: 14px;
+            color: #E2D9C8;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(22, 43, 56, 0.08);
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-terracotta);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: rgba(200, 90, 50, 0.08);
+            transition: 0.2s;
+        }
+        .back-home:hover { background: var(--accent-terracotta); color: #FFFFFF; }
+
+        .grade-links a {
+            color: var(--primary-navy);
+            text-decoration: none;
+            margin-left: 14px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .grade-links a:hover { color: var(--accent-terracotta); }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1100px;
+            margin: 38px auto;
+            padding: 0 22px;
+        }
+
+        /* --- BỘ LỌC & TÌM KIẾM THÔNG MINH --- */
+        .filter-panel {
+            background: var(--card-bg);
+            padding: 24px 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.05);
+            margin-bottom: 32px;
+            border: 1px solid rgba(22, 43, 56, 0.07);
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .grade-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            border: 1px solid rgba(22, 43, 56, 0.15);
+            background: #F9F6F0;
+            color: var(--primary-navy);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-navy);
+            color: #FFFFFF;
+            border-color: var(--primary-navy);
+        }
+
+        .search-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1 1 320px;
+            justify-content: flex-end;
+        }
+
+        .search-input, .type-select {
+            padding: 9px 14px;
+            border: 1px solid rgba(22, 43, 56, 0.2);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 13.5px;
+            background: #FFFFFF;
+            color: var(--text-dark);
+        }
+
+        .search-input { min-width: 210px; flex-grow: 1; }
+
+        /* --- LƯỚI THẺ HỌC LIỆU TỰ ĐỘNG --- */
+        .status-bar {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 22px;
+        }
+
+        .item-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid rgba(22, 43, 56, 0.08);
+            box-shadow: 0 6px 18px rgba(22, 43, 56, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s, box-shadow 0.25s;
+            border-top: 4px solid var(--accent-terracotta);
+        }
+
+        .item-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(22, 43, 56, 0.1);
+        }
+
+        .item-card[data-grade*="6"] { border-top-color: #E07A5F; }
+        .item-card[data-grade*="7"] { border-top-color: #3D5A80; }
+        .item-card[data-grade*="8"] { border-top-color: #2A9D8F; }
+        .item-card[data-grade*="9"] { border-top-color: #6D597A; }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .badge-grade { background: #EEF3F7; color: var(--primary-navy); }
+        .badge-sem { background: #F2EFE9; color: var(--text-muted); }
+        .badge-type { background: #FDF0EC; color: var(--accent-terracotta); }
+
+        .item-topic {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            color: var(--primary-navy);
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .open-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary-navy);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .open-btn:hover { background-color: var(--accent-terracotta); }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            background: #FFFFFF;
+            border-radius: 14px;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #B8C4CC;
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 13px;
+            margin-top: 60px;
+        }
+        footer strong { color: var(--accent-ochre); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-badge">HỒNG SƠN ART · KẾT NỐI DỮ LIỆU TRỰC TUYẾN</div>
+        <h1>KHO HỌC LIỆU MỸ THUẬT THCS</h1>
+        <p class="subtitle">Hệ thống bài giảng, video thị phạm, sách điện tử và phiếu học tập cập nhật tự động theo từng chủ đề</p>
+    </header>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="back-home">← Quay lại Trang chủ</a>
+            <div class="grade-links">
+                <a href="my-thuat-6.html">Lớp 6</a>
+                <a href="my-thuat-7.html">Lớp 7</a>
+                <a href="my-thuat-8.html">Lớp 8</a>
+                <a href="my-thuat-9.html">Lớp 9</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Bảng lọc dữ liệu -->
+        <div class="filter-panel">
+            <div class="filter-row">
+                <div class="grade-tabs" id="gradeTabs">
+                    <button class="tab-btn active" data-grade="ALL">Tất cả khối</button>
+                    <button class="tab-btn" data-grade="6">Lớp 6</button>
+                    <button class="tab-btn" data-grade="7">Lớp 7</button>
+                    <button class="tab-btn" data-grade="8">Lớp 8</button>
+                    <button class="tab-btn" data-grade="9">Lớp 9</button>
+                </div>
+
+                <div class="search-controls">
+                    <select id="typeFilter" class="type-select">
+                        <option value="ALL">Tất cả loại tài liệu</option>
+                    </select>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Tìm tên bài học, chủ đề...">
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span id="resultCount">Đang tải dữ liệu từ kho học liệu...</span>
+            <span>🔄 Đồng bộ trực tiếp với Google Sheets</span>
+        </div>
+
+        <!-- Nơi hiển thị các thẻ học liệu từ Google Sheets -->
+        <div class="resource-grid" id="resourceGrid">
+            <div class="empty-state">Đang kết nối dữ liệu bảng tính, vui lòng chờ trong giây lát...</div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>HỒNG SƠN ART</strong> · Kênh học liệu điện tử môn Mỹ thuật THCS</p>
+        <p style="margin-top: 6px;">Giáo viên thực hiện: Đỗ Hồng Sơn · Trường THCS Cao Bá Quát, xã Chư Sê, tỉnh Gia Lai</p>
+    </footer>
+
+    <script>
+        // ĐƯỜNG DẪN GOOGLE SHEETS CSV CỦA ANH SƠN
+        const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
+
+        let allItems = [];
+        let selectedGrade = "ALL";
+
+        // Hàm phân tích chuẩn định dạng CSV (xử lý được cả dấu phẩy nằm trong ngoặc kép)
+        function parseCSV(text) {
+            const rows = [];
+            let currentRow = [];
+            let currentVal = "";
+            let insideQuotes = false;
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const nextChar = text[i + 1];
+
+                if (char === '"') {
+                    if (insideQuotes && nextChar === '"') {
+                        currentVal += '"';
+                        i++;
+                    } else {
+                        insideQuotes = !insideQuotes;
+                    }
+                } else if (char === ',' && !insideQuotes) {
+                    currentRow.push(currentVal.trim());
+                    currentVal = "";
+                } else if ((char === '\n' || (char === '\r' && nextChar === '\n')) && !insideQuotes) {
+                    currentRow.push(currentVal.trim());
+                    rows.push(currentRow);
+                    currentRow = [];
+                    currentVal = "";
+                    if (char === '\r') i++;
+                } else {
+                    currentVal += char;
+                }
+            }
+            if (currentVal || currentRow.length > 0) {
+                currentRow.push(currentVal.trim());
+                rows.push(currentRow);
+            }
+            return rows;
+        }
+
+        // Gắn icon phù hợp theo loại tài liệu
+        function getIcon(type) {
+            const t = (type || "").toLowerCase();
+            if (t.includes("video")) return "🎬";
+            if (t.includes("bài giảng") || t.includes("slide")) return "📊";
+            if (t.includes("phiếu")) return "📄";
+            if (t.includes("sách") || t.includes("sgk") || t.includes("sgv")) return "📖";
+            if (t.includes("tranh") || t.includes("họa tiết") || t.includes("ảnh")) return "🖼️";
+            return "📎";
+        }
+
+        // Tải dữ liệu từ Google Sheets
+        async function loadSheetData() {
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
+                const rows = parseCSV(csvText);
+
+                // Bỏ qua dòng tiêu đề (dòng 0), lấy từ dòng 1 trở đi
+                allItems = rows.slice(1)
+                    .filter(r => r.length >= 6 && r[3] && r[5]) // Chỉ lấy dòng có Tên bài và Đường link
+                    .map(r => ({
+                        khoiLop: r[0] || "Chung",
+                        hocKy: r[1] || "",
+                        chuDe: r[2] || "",
+                        tenBai: r[3] || "",
+                        loaiTaiLieu: r[4] || "Tài liệu",
+                        duongLink: r[5] || "#"
+                    }));
+
+                populateTypeFilter();
+                renderCards();
+            } catch (error) {
+                document.getElementById("resourceGrid").innerHTML = `
+                    <div class="empty-state">
+                        ⚠️ Không tải được dữ liệu từ Google Sheets. Anh Sơn kiểm tra lại kết nối mạng hoặc trạng thái Xuất bản lên web nhé.
+                    </div>`;
+            }
+        }
+
+        // Tự động tạo danh sách Loại tài liệu vào ô chọn lọc
+        function populateTypeFilter() {
+            const typeSelect = document.getElementById("typeFilter");
+            const types = [...new Set(allItems.map(item => item.loaiTaiLieu).filter(Boolean))];
+            types.forEach(type => {
+                const opt = document.createElement("option");
+                opt.value = type;
+                opt.textContent = type;
+                typeSelect.appendChild(opt);
+            });
+        }
+
+        // Hiển thị danh sách thẻ ra màn hình
+        function renderCards() {
+            const grid = document.getElementById("resourceGrid");
+            const countLabel = document.getElementById("resultCount");
+            const selectedType = document.getElementById("typeFilter").value;
+            const keyword = document.getElementById("searchInput").value.toLowerCase().trim();
+
+            const filtered = allItems.filter(item => {
+                const matchGrade = selectedGrade === "ALL" || item.khoiLop.includes(selectedGrade);
+                const matchType = selectedType === "ALL" || item.loaiTaiLieu === selectedType;
+                const matchKeyword = !keyword || 
+                    item.tenBai.toLowerCase().includes(keyword) || 
+                    item.chuDe.toLowerCase().includes(keyword) ||
+                    item.loaiTaiLieu.toLowerCase().includes(keyword);
+                return matchGrade && matchType && matchKeyword;
+            });
+
+            countLabel.textContent = `Tìm thấy ${filtered.length} học liệu`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        Chưa có học liệu nào khớp với bộ lọc hiện tại (hoặc bảng tính chưa nhập dòng dữ liệu nào).
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="item-card" data-grade="${item.khoiLop}">
+                    <div>
+                        <div class="badges">
+                            <span class="badge badge-grade">${item.khoiLop}</span>
+                            ${item.hocKy ? `<span class="badge badge-sem">${item.hocKy}</span>` : ""}
+                            <span class="badge badge-type">${getIcon(item.loaiTaiLieu)} ${item.loaiTaiLieu}</span>
+                        </div>
+                        ${item.chuDe ? `<div class="item-topic">${item.chuDe}</div>` : ""}
+                        <h3 class="item-title">${item.tenBai}</h3>
+                    </div>
+                    <a href="${item.duongLink}" target="_blank" class="open-btn">
+                        Mở học liệu <span>↗</span>
+                    </a>
+                </div>
+            `).join("");
+        }
+
+        // Sự kiện bấm nút chọn Khối lớp
+        document.getElementById("gradeTabs").addEventListener("click", (e) => {
+            if (e.target.classList.contains("tab-btn")) {
+                document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+                e.target.classList.add("active");
+                selectedGrade = e.target.getAttribute("data-grade");
+                renderCards();
+            }
+        });
+
+        document.getElementById("typeFilter").addEventListener("change", renderCards);
+        document.getElementById("searchInput").addEventListener("input", renderCards);
+
+        // Chạy hàm tải dữ liệu khi mở trang
+        loadSheetData();
+    </script>
+</body>
+</html>
