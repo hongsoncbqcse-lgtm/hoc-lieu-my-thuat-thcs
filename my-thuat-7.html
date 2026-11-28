@@ -35,7 +35,6 @@
             background-position: 0 0, 14px 14px;
         }
 
-        /* ==================== STUDIO HEADER ==================== */
         header {
             background: radial-gradient(circle at 85% 20%, rgba(217, 160, 91, 0.22) 0%, transparent 45%),
                         radial-gradient(circle at 12% 85%, rgba(200, 90, 50, 0.25) 0%, transparent 45%),
@@ -164,7 +163,6 @@
             color: var(--primary-navy);
         }
 
-        /* ==================== STICKY NAVIGATION ==================== */
         nav {
             background-color: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(12px);
@@ -230,7 +228,6 @@
             padding: 0 24px;
         }
 
-        /* ==================== OVERVIEW & STUDIO PALETTE CARD ==================== */
         .overview-grid {
             display: grid;
             grid-template-columns: 1.45fr 1fr;
@@ -376,7 +373,6 @@
         .palette-meta strong { display: block; font-size: 12px; color: var(--primary-navy); }
         .palette-meta span { display: block; font-size: 10.5px; color: var(--text-muted); }
 
-        /* ==================== SEMESTER & TOPIC CARDS ==================== */
         .semester-divider {
             margin: 46px 0 26px;
             padding: 16px 24px;
@@ -536,10 +532,9 @@
         .btn-doc { background-color: #FBF4E6; color: #94601E; }
         .btn-doc:hover { background-color: var(--accent-ochre); color: #FFFFFF; transform: translateY(-1px); }
 
-        /* Nút được kích hoạt tự động từ Google Sheets */
         .res-btn.is-live {
-            box-shadow: 0 3px 10px rgba(20, 39, 52, 0.12);
-            border: 1px solid rgba(20, 39, 52, 0.12);
+            box-shadow: 0 3px 10px rgba(20, 39, 52, 0.14);
+            border: 1px solid rgba(20, 39, 52, 0.14);
         }
 
         /* ==================== PHÒNG TRIỂN LÃM MỸ THUẬT SỐ ==================== */
@@ -1030,6 +1025,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">🖼️ Tư liệu di sản</a>
                         </div>
                     </div>
@@ -1085,6 +1081,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">📄 Tranh tham khảo</a>
                         </div>
                     </div>
@@ -1123,6 +1120,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">📐 Bản vẽ mẫu</a>
                         </div>
                     </div>
@@ -1145,6 +1143,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">📐 Sơ đồ tỷ lệ</a>
                         </div>
                     </div>
@@ -1187,6 +1186,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">🖼️ Bộ mẫu chữ</a>
                         </div>
                     </div>
@@ -1241,6 +1241,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">📄 Phiếu thực hành</a>
                         </div>
                     </div>
@@ -1279,6 +1280,7 @@
                         </div>
                         <div class="resource-links">
                         <a href="#" class="res-btn btn-slide">📊 Bài giảng</a>
+                        <a href="#" class="res-btn btn-video">🎬 Video hướng dẫn</a>
                         <a href="My-thuat-7/" class="res-btn btn-doc">🖼️ Kho tư liệu</a>
                         </div>
                     </div>
@@ -1290,7 +1292,7 @@
         <div class="topic-group" id="auto-sheet-section" style="margin-top: 50px;">
             <h2 class="topic-title">
                 <span class="topic-badge" style="background-color: var(--accent-terracotta);">CẬP NHẬT TRỰC TUYẾN</span> 
-                Kho bài giảng & Học liệu bổ sung (Tự động từ Google Sheets)
+                Kho bài giảng & Học liệu bổ sung (Đồng bộ từ Google Sheets)
             </h2>
             <div id="sheet-cards-container" class="lesson-grid">
                 <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--text-muted);">
@@ -1329,13 +1331,11 @@
         </div>
     </div>
 
-    <!-- THANH NÚT NỔI GÓC DƯỚI MÀN HÌNH -->
     <div class="floating-dock">
         <a href="https://forms.gle/6RQduNzTrL7FHTKK6" target="_blank" class="dock-btn dock-submit" title="Gửi ảnh chụp bài vẽ của em lên phòng tranh">📤 Nộp bài vẽ</a>
         <a href="#top" class="dock-btn dock-top" title="Lên đầu trang">↑</a>
     </div>
 
-    <!-- HỘP ĐÈN LIGHTBOX PHÓNG TO TRANH TOÀN MÀN HÌNH -->
     <div class="art-lightbox" id="art-lightbox">
         <div class="lightbox-dialog">
             <button class="lightbox-close" id="lightbox-close" title="Đóng (ESC)">✕</button>
@@ -1361,9 +1361,10 @@
         (function() {
             const currentGrade = "7";
             const SPREADSHEET_ID = "1LIFdjnspgzZ44eYbs4-EIFmJhFkyFu01tP2qpckBUuA";
-            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
+            // Đọc trực tiếp tab đầu tiên (Kho học liệu) của Google Sheet qua gviz JSON để luôn cập nhật tức thì
+            const KHO_HOC_LIEU_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&gid=0`;
 
-            // 0. XỬ LÝ TÌM KIẾM BÀI HỌC NHANH & SAO CHÉP MÃ MÀU
+            // 0. TÌM KIẾM BÀI HỌC & SAO CHÉP MÃ MÀU
             const searchInput = document.getElementById("lesson-search-input");
             const searchClear = document.getElementById("lesson-search-clear");
             const emptyNotice = document.getElementById("search-empty-notice");
@@ -1409,7 +1410,7 @@
                 document.querySelectorAll('a.res-btn[href="#"]').forEach(btn => {
                     if (!btn.classList.contains("is-pending")) {
                         btn.classList.add("is-pending");
-                        btn.title = "Học liệu đang được thầy Đỗ Hồng Sơn biên soạn. Hãy dán link vào Google Sheets (cột Bài học & Link) để tự động kích hoạt nút này!";
+                        btn.title = "Chưa có đường link trên Google Sheets. Thầy Đỗ Hồng Sơn hãy dán link vào cột G (Duong_link) để tự động kích hoạt!";
                         if (!btn.innerHTML.includes("(Sắp có)")) {
                             btn.innerHTML = btn.innerHTML + ' <span class="pending-tag" style="font-size:10px;opacity:0.85;">(Sắp có)</span>';
                         }
@@ -1420,39 +1421,21 @@
                 });
             }
 
-            // 1. TẢI DỮ LIỆU TỪ GOOGLE SHEETS & TỰ ĐỘNG KÍCH HOẠT CÁC NÚT BÀI GIẢNG / VIDEO TRÊN TỪNG THẺ BÀI HỌC
-            function parseCSV(text) {
-                const rows = [];
-                let row = [], val = "", inQuotes = false;
-                for (let i = 0; i < text.length; i++) {
-                    const c = text[i], nc = text[i + 1];
-                    if (c === '"') {
-                        if (inQuotes && nc === '"') { val += '"'; i++; }
-                        else { inQuotes = !inQuotes; }
-                    } else if (c === ',' && !inQuotes) {
-                        row.push(val.trim()); val = "";
-                    } else if ((c === '\n' || (c === '\r' && nc === '\n')) && !inQuotes) {
-                        row.push(val.trim()); rows.push(row); row = []; val = "";
-                        if (c === '\r') i++;
-                    } else { val += c; }
-                }
-                if (val || row.length > 0) { row.push(val.trim()); rows.push(row); }
-                return rows;
-            }
-
             function extractLessonNumbers(str) {
                 if (!str) return [];
                 const matches = str.match(/bài\s*(\d+)/gi) || [];
                 return matches.map(m => m.replace(/\D/g, ""));
             }
 
-            function activateCardFromSheet(item) {
-                // item: [0:Khối, 1:Bài/Chủ đề, 2:Mô tả, 3:Tiêu đề, 4:Loại (Bài giảng/Video/Phiếu...), 5:Link]
-                const lessonNums = extractLessonNumbers(item[1] + " " + item[3]);
+            // Cấu trúc cột chuẩn theo ảnh bảng tính của Anh Sơn:
+            // [0] Khoi_lop | [1] SGK, SGV | [2] Hoc_ky | [3] Chu_de | [4] Ten_bai | [5] Loai_tai_lieu | [6] Duong_link
+            function activateCardFromSheet(row) {
+                const lessonText = (row.tenBai || "") + " " + (row.sgkSgv || "");
+                const lessonNums = extractLessonNumbers(lessonText);
                 if (lessonNums.length === 0) return false;
 
-                const typeStr = (item[4] || "").toLowerCase();
-                const linkUrl = item[5];
+                const typeStr = (row.loai || "").toLowerCase();
+                const linkUrl = row.link;
                 let matchedAnyCard = false;
 
                 document.querySelectorAll(".topic-group[data-searchable='true'] .lesson-card").forEach(card => {
@@ -1466,7 +1449,6 @@
                     const linksWrap = card.querySelector(".resource-links");
                     if (!linksWrap) return;
 
-                    // Tìm nút phù hợp loại học liệu (Bài giảng -> btn-slide, Video -> btn-video, Phiếu/Tư liệu -> btn-doc)
                     let targetBtn = null;
                     if (typeStr.includes("bài giảng") || typeStr.includes("slide") || typeStr.includes("ppt")) {
                         targetBtn = linksWrap.querySelector(".btn-slide");
@@ -1481,14 +1463,13 @@
                         targetBtn.target = "_blank";
                         targetBtn.classList.remove("is-pending");
                         targetBtn.classList.add("is-live");
-                        targetBtn.title = item[3] || "Mở học liệu trực tuyến";
+                        targetBtn.title = row.tenBai || "Mở học liệu trực tuyến";
                         const pendingTag = targetBtn.querySelector(".pending-tag");
                         if (pendingTag) pendingTag.remove();
                         if (!targetBtn.innerHTML.includes("↗")) {
                             targetBtn.innerHTML += " ↗";
                         }
                     } else {
-                        // Nếu bài đó chưa có sẵn nút loại này thì thêm mới một nút sáng màu
                         const newBtn = document.createElement("a");
                         newBtn.href = linkUrl;
                         newBtn.target = "_blank";
@@ -1496,7 +1477,7 @@
                         if (typeStr.includes("video")) { bCls = "btn-video"; icon = "🎬"; }
                         else if (typeStr.includes("phiếu") || typeStr.includes("tư liệu")) { bCls = "btn-doc"; icon = "📄"; }
                         newBtn.className = `res-btn ${bCls} is-live`;
-                        newBtn.textContent = `${icon} ${item[4] || item[3]} ↗`;
+                        newBtn.textContent = `${icon} ${row.loai || row.tenBai} ↗`;
                         linksWrap.appendChild(newBtn);
                     }
                 });
@@ -1504,34 +1485,57 @@
                 return matchedAnyCard;
             }
 
-            fetch(CSV_URL)
+            // 1. ĐỌC KHO HỌC LIỆU TỪ GOOGLE SHEETS (TAB ĐẦU TIÊN)
+            fetch(KHO_HOC_LIEU_URL)
                 .then(res => res.text())
-                .then(text => {
-                    const rows = parseCSV(text).slice(1);
-                    const container = document.getElementById("sheet-cards-container");
-                    const gradeItems = rows.filter(r => r.length >= 6 && r[0].includes(currentGrade) && r[3] && r[5]);
+                .then(raw => {
+                    const jsonStr = raw.substring(raw.indexOf('{'), raw.lastIndexOf('}') + 1);
+                    const data = JSON.parse(jsonStr);
+                    const rows = data.table.rows || [];
 
-                    // Tự động gắn link vào các nút Bài giảng / Video trên từng thẻ bài học
-                    gradeItems.forEach(item => activateCardFromSheet(item));
+                    const parsedRows = rows.map(r => {
+                        const c = r.c || [];
+                        const getVal = idx => (c[idx] ? (c[idx].f || c[idx].v || "").toString().trim() : "");
+                        return {
+                            khoi: getVal(0),
+                            sgkSgv: getVal(1),
+                            hocKy: getVal(2),
+                            chuDe: getVal(3),
+                            tenBai: getVal(4),
+                            loai: getVal(5),
+                            link: getVal(6)
+                        };
+                    }).filter(item => {
+                        // Lọc đúng khối lớp và phải có đường link hợp lệ ở cột G (index 6)
+                        const khoiDigits = item.khoi.replace(/\D/g, "");
+                        return khoiDigits === currentGrade && item.link && item.link.startsWith("http");
+                    });
 
-                    // Sau khi gắn xong các link có trên Sheet, các nút còn lại vẫn là "#" mới gắn nhãn (Sắp có)
+                    // Kích hoạt các nút Video / Bài giảng / Phiếu trên từng thẻ bài học
+                    parsedRows.forEach(item => activateCardFromSheet(item));
+
+                    // Gắn nhãn (Sắp có) cho các nút chưa có link
                     markPendingButtons();
 
-                    if (gradeItems.length === 0) {
-                        container.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--text-muted);">Chưa có học liệu bổ sung nào cho Lớp ${currentGrade} trên bảng tính. Khi Anh Sơn thêm link vào Google Sheets (ghi rõ cột Bài học như <strong>Bài 1</strong>, <strong>Bài 2</strong>...), các nút <strong>Bài giảng</strong> và <strong>Video</strong> phía trên sẽ tự động sáng lên và bấm được ngay!</div>`;
+                    // Hiển thị danh sách tổng hợp ở mục "Kho bài giảng & Học liệu bổ sung"
+                    const container = document.getElementById("sheet-cards-container");
+                    if (parsedRows.length === 0) {
+                        container.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; padding: 24px; color: var(--text-muted);">Chưa có học liệu nào có đường link hợp lệ cho Lớp ${currentGrade} trong trang tính.</div>`;
                         return;
                     }
 
-                    container.innerHTML = gradeItems.map(item => `
+                    container.innerHTML = parsedRows.map(item => `
                         <div class="lesson-card">
                             <div class="lesson-card-body">
                                 <div>
-                                    <div style="font-size:11.5px;font-weight:700;color:var(--grade-accent);text-transform:uppercase;margin-bottom:6px;">${item[1] ? item[1] + " · " : ""}${item[4] || "Học liệu"}</div>
-                                    <h3>${item[3]}</h3>
-                                    <p class="lesson-desc">${item[2] || "Tài liệu học tập trực tuyến môn Mỹ thuật"}</p>
+                                    <div style="font-size:11.5px;font-weight:700;color:var(--grade-accent);text-transform:uppercase;margin-bottom:6px;">
+                                        ${item.chuDe ? item.chuDe + " · " : ""}${item.loai || "Học liệu"}
+                                    </div>
+                                    <h3>${item.tenBai || item.sgkSgv || "Tài liệu Mỹ thuật " + currentGrade}</h3>
+                                    <p class="lesson-desc">${item.hocKy ? "Học kỳ " + item.hocKy + " · " : ""}Mỹ thuật ${currentGrade} (Kết nối tri thức với cuộc sống)</p>
                                 </div>
                                 <div class="resource-links">
-                                    <a href="${item[5]}" target="_blank" class="res-btn btn-slide is-live">📂 Mở học liệu ↗</a>
+                                    <a href="${item.link}" target="_blank" class="res-btn btn-slide is-live">📂 Mở ${item.loai || "học liệu"} ↗</a>
                                 </div>
                             </div>
                         </div>
@@ -1541,7 +1545,7 @@
                     markPendingButtons();
                 });
 
-            // 2. TẢI PHÒNG TRIỂN LÃM HỌC SINH & LIGHTBOX
+            // 2. PHÒNG TRIỂN LÃM HỌC SINH & LIGHTBOX
             function convertDriveImg(url) {
                 if (!url) return "";
                 const match = url.match(/[-\w]{25,}/);
