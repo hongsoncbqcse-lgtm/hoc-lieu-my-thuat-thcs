@@ -74,7 +74,7 @@
         header .subtitle {
             font-size: 14px;
             color: #E2D9C8;
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
@@ -139,4 +139,81 @@
             color: var(--accent-terracotta);
         }
 
-        /* ---
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1080px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        /* --- KHUNG TỔNG QUAN & CHỌN NHANH HỌC KỲ --- */
+        .overview-card {
+            background: var(--card-bg);
+            padding: 28px 34px;
+            border-radius: 14px;
+            border-left: 5px solid var(--grade6-accent);
+            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.04);
+            margin-bottom: 35px;
+        }
+
+        .overview-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .overview-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .semester-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .jump-btn {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            background: #F2EFE9;
+            padding: 7px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .jump-btn:hover {
+            background: var(--grade6-accent);
+            color: #FFFFFF;
+        }
+
+        /* --- NHÃN HỌC KỲ --- */
+        .semester-divider {
+            margin: 45px 0 25px;
+            padding: 12px 20px;
+            background: var(--primary-navy);
+            color: #FFFFFF;
+            border-radius: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .semester-divider span {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 12px;
+            color: var(--accent-ochre);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /*
