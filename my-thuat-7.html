@@ -227,6 +227,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .topic-badge {
@@ -300,6 +301,113 @@
         .btn-doc { background-color: #FBF5EA; color: #9A6726; }
         .btn-doc:hover { background-color: var(--accent-ochre); color: #FFFFFF; }
 
+        /* CSS CHO GÓC TRIỂN LÃM SẢN PHẨM HỌC SINH */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .artwork-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(22, 43, 56, 0.08);
+            box-shadow: 0 8px 22px rgba(22, 43, 56, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(22, 43, 56, 0.12);
+        }
+
+        .artwork-img-wrap {
+            width: 100%;
+            height: 240px;
+            background: #EAE5DC;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artwork-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .artwork-card:hover .artwork-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .artwork-class-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(22, 43, 56, 0.88);
+            color: var(--accent-ochre);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .artwork-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .artwork-lesson {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--accent-terracotta);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .artwork-author {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+
+        .artwork-note {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        .artwork-footer {
+            border-top: 1px dashed rgba(22, 43, 56, 0.12);
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .padlet-wrapper {
+            margin-top: 24px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(22, 43, 56, 0.1);
+            box-shadow: 0 8px 24px rgba(22, 43, 56, 0.05);
+            background: #FFFFFF;
+        }
+
         footer {
             background-color: var(--primary-navy);
             color: #B8C4CC;
@@ -349,6 +457,7 @@
             <div class="semester-jump">
                 <a href="#hoc-ky-1" class="jump-btn">↓ Học kỳ I (Chủ đề 1 – 4)</a>
                 <a href="#hoc-ky-2" class="jump-btn">↓ Học kỳ II (Chủ đề 5 – 8)</a>
+                <a href="#goc-trien-lam" class="jump-btn" style="background: #FDF0EC; color: var(--accent-terracotta);">🎨 Góc Triển Lãm Học Sinh</a>
             </div>
         </div>
 
@@ -578,12 +687,38 @@
                 </div>
             </div>
         </div>
+
+        <!-- ==================== GÓC TRIỂN LÃM SẢN PHẨM HỌC SINH ==================== -->
+        <div class="semester-divider" id="goc-trien-lam" style="background: linear-gradient(135deg, #2B1E1A 0%, #4A2E23 100%);">
+            GÓC TRIỂN LÃM SẢN PHẨM HỌC SINH <span>Tác phẩm tiêu biểu Khối 7</span>
+        </div>
+
+        <div class="topic-group">
+            <h2 class="topic-title">
+                <span class="topic-badge" style="background-color: var(--accent-terracotta);">ĐÃ DUYỆT</span> 
+                Trưng bày bài vẽ & Cảm nhận sáng tạo của học sinh
+            </h2>
+            <div id="student-gallery-container" class="gallery-grid">
+                <div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+                    Đang tải các tác phẩm đã duyệt từ phòng trưng bày...
+                </div>
+            </div>
+
+            <!-- KHUNG PADLET TƯƠNG TÁC (TỰ HIỆN KHI DÁN LINK PADLET) -->
+            <div id="padlet-container" class="padlet-wrapper" style="display: none;"></div>
+        </div>
     </div>
 
     <script>
         (function() {
-            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
             const currentGrade = "7";
+            // ID Bảng tính KHO_HOC_LIEU_MY_THUAT_THCS của Anh Sơn
+            const SPREADSHEET_ID = "1LIFdjnspgzZ44eYbs4-EIFmJhFkyFu01tP2qpckBUuA";
+            // Dán đường link Padlet của Anh Sơn vào giữa 2 dấu ngoặc kép bên dưới (ví dụ: "https://padlet.com/...")
+            const PADLET_URL = "";
+
+            // 1. TẢI KHO HỌC LIỆU BỔ SUNG (Trang tính1)
+            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTaS6VgDEoNdjU7WptOpJHmGgURrqBWHGhPaZAtTYAg9opULxAviD1HkLtARe5fHVsnpQRCLyFCfzA_/pub?output=csv";
 
             function parseCSV(text) {
                 const rows = [];
@@ -629,6 +764,84 @@
                         </div>
                     `).join("");
                 });
+
+            // 2. TẢI BÀI VẼ HỌC SINH ĐÃ DUYỆT TỪ TAB Form_Responses (Cập nhật tức thì)
+            function convertDriveImg(url) {
+                if (!url) return "";
+                const match = url.match(/[-\w]{25,}/);
+                return match ? `https://lh3.googleusercontent.com/d/${match[0]}=w1000` : url;
+            }
+
+            function getDriveViewLink(url) {
+                if (!url) return "#";
+                const match = url.match(/[-\w]{25,}/);
+                return match ? `https://drive.google.com/file/d/${match[0]}/view` : url;
+            }
+
+            const galleryUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=Form_Responses`;
+
+            fetch(galleryUrl)
+                .then(res => res.text())
+                .then(raw => {
+                    const jsonStr = raw.substring(raw.indexOf('{'), raw.lastIndexOf('}') + 1);
+                    const data = JSON.parse(jsonStr);
+                    const rows = data.table.rows || [];
+                    const galleryContainer = document.getElementById("student-gallery-container");
+
+                    // Cột: 0=Thời gian, 1=Email, 2=Họ tên, 3=Lớp, 4=Bài học, 5=Cảm nhận, 6=Link ảnh, 7=Trạng thái
+                    const approvedWorks = rows.map(r => (r.c || []).map(cell => cell ? (cell.f || cell.v || "").toString().trim() : ""))
+                        .filter(cols => {
+                            const lop = cols[3] || "";
+                            const trangThai = (cols[7] || "").toLowerCase();
+                            return lop.startsWith(currentGrade) && trangThai.includes("duyệt");
+                        });
+
+                    if (approvedWorks.length === 0) {
+                        galleryContainer.innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Chưa có bài vẽ nào của Khối ${currentGrade} được duyệt hiển thị.</div>`;
+                        return;
+                    }
+
+                    galleryContainer.innerHTML = approvedWorks.reverse().map(w => {
+                        const author = w[2] || "Học sinh";
+                        const className = w[3] || "";
+                        const lesson = w[4] || "Sản phẩm Mỹ thuật";
+                        const caption = w[5] || "";
+                        const imgDirect = convertDriveImg(w[6]);
+                        const imgFull = getDriveViewLink(w[6]);
+
+                        return `
+                            <div class="artwork-card">
+                                <div class="artwork-img-wrap">
+                                    <a href="${imgFull}" target="_blank" title="Nhấn để xem ảnh phóng to">
+                                        <img src="${imgDirect}" alt="${lesson} - ${author}" loading="lazy" onerror="this.src='https://placehold.co/600x400/EAE5DC/162B38?text=Chưa+mở+quyền+xem+ảnh+Drive'">
+                                    </a>
+                                    <span class="artwork-class-badge">Lớp ${className}</span>
+                                </div>
+                                <div class="artwork-body">
+                                    <div>
+                                        <div class="artwork-lesson">${lesson}</div>
+                                        <div class="artwork-author">${author}</div>
+                                        <p class="artwork-note" title="${caption.replace(/"/g, '&quot;')}">${caption}</p>
+                                    </div>
+                                    <div class="artwork-footer">
+                                        <span style="font-size: 11.5px; color: var(--text-muted);">✨ Tác phẩm tiêu biểu</span>
+                                        <a href="${imgFull}" target="_blank" class="res-btn btn-doc">🔍 Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join("");
+                })
+                .catch(err => {
+                    document.getElementById("student-gallery-container").innerHTML = `<div class="lesson-card" style="grid-column: 1 / -1; text-align: center; color: var(--accent-terracotta);">Không thể tải dữ liệu triển lãm. Hãy kiểm tra tên tab trong Google Sheet là <strong>Form_Responses</strong> và bật chia sẻ công khai ở chế độ Người xem.</div>`;
+                });
+
+            // 3. HIỂN THỊ PADLET NẾU CÓ LINK
+            if (PADLET_URL) {
+                const padletBox = document.getElementById("padlet-container");
+                padletBox.style.display = "block";
+                padletBox.innerHTML = `<iframe src="${PADLET_URL}" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:600px;display:block;"></iframe>`;
+            }
         })();
     </script>
 
